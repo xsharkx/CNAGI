@@ -3,7 +3,7 @@
 
 CNGPI(China Gaming devices Public Interface)
 
-此logo用于标记自己产品已支持此协议， [矢量图下载](logo/CNGPIV1.png)
+此logo用于标记自己产品已支持此协议， [矢量图下载](logo/CNGPIV1.ai)
 
 ## 一 摘要
 本文档定义出游戏机与周边设备互动的通讯协议，包括如下用途：
