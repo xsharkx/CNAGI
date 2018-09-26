@@ -3,9 +3,9 @@
 
 CNGPI(China Gaming devices Public Interface)
 
-此logo用于标记自己产品已支持此协议， [矢量图下载](logo/CNGPIV1.ai)
+此logo用于标记自己产品已支持此协议， [矢量图下载](logo/CNGPIV1.ai) （右键另存为）
 
-PC版调试工具 [盒子模拟器](Tools/CNGPI_PayBoxV1.zip) 
+PC版调试工具 [盒子模拟器](Tools/CNGPI_PayBoxV1.zip)  （右键另存为）
 
 ## 一 摘要
 本文档定义出游戏机与周边设备互动的通讯协议，包括如下用途：
