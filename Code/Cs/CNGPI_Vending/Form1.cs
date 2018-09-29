@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CNGPI_GameMachine
+namespace CNGPI_Vending
 {
     public partial class Form1 : Form
     {
@@ -28,7 +28,7 @@ namespace CNGPI_GameMachine
                 base_comname.SelectedIndex = 0;
             }
             Devinfo = new CNGPI.DeviceInfo(0x00030001);
-            Devinfo.DeviceType = 0x0003;
+            Devinfo.DeviceType = 0x0005;
             Devinfo.ID = CNGPI.Utility.ByteToHex(Guid.NewGuid().ToByteArray());
         }
 
@@ -77,7 +77,7 @@ namespace CNGPI_GameMachine
                 GameMac = null;
                 base_bt_conn.Text = "连接并握手";
             }
-            grp_gift.Enabled = GameMac != null;
+            grp_sell.Enabled= grp_gift.Enabled = GameMac != null;
         }
 
         int CoinCount = 0;
@@ -207,6 +207,27 @@ namespace CNGPI_GameMachine
                         WinCoins=100,
                         WinGifts=9
                     };
+                case 0x0402:
+                    return new CNGPI.Msg_PayOrder_Back()
+                    {
+                        ADR = 1,
+                        ErrCode = 0,
+                        TransID = (msg as CNGPI.ITransMsg).TransID
+                    };
+                case 0x0405:
+                    return new CNGPI.Msg_SetPrdInfo_Back()
+                    {
+                        ADR = 1,
+                        ErrCode = 0,
+                        TransID = (msg as CNGPI.ITransMsg).TransID
+                    };
+                case 0x0406:
+                    return new CNGPI.Msg_CheckCount_Back()
+                    {
+                        ADR = 1,
+                        ErrCode = 0,
+                        TransID = (msg as CNGPI.ITransMsg).TransID
+                    };
                 default:
                     return null;
             }
@@ -283,7 +304,100 @@ namespace CNGPI_GameMachine
                 {
                     ADR = 1,
                     AlertType = 1
-                }, 100, 5);
+                }, 500, 10);
+            }
+            catch (Exception ex)
+            {
+                DebugInfo(ex.Message);
+            }
+        }
+
+        string LastOrdernum = "";
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LastOrdernum = Utility.ByteToHex(Guid.NewGuid().ToByteArray());
+            try
+            {
+                var back=GameMac.SendAndBackMsg<Msg_CreateOrder_Back>(new Msg_CreateOrder_Event()
+                {
+                    ADR = 1,
+                    BoxNum=Int32.Parse(txt_boxnum.Text),
+                    OrderNum= LastOrdernum,
+                    Price=100
+                }, 5000);
+            }
+            catch (Exception ex)
+            {
+                DebugInfo(ex.Message);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(LastOrdernum))
+            {
+                DebugInfo("没有上个单号");
+                return;
+            }
+            try
+            {
+                var back=GameMac.SendAndBackMsg<Msg_QueryOrder_Back>(new Msg_QueryOrder_Event()
+                {
+                    ADR = 1,
+                    OrderNum = LastOrdernum,
+                }, 15000);
+
+                if (back.ErrCode == 0)
+                {
+                    if (back.State == 0)
+                    {
+                        DebugInfo("状态:支付中");
+                    }
+                    if (back.State == 1)
+                    {
+                        DebugInfo("状态:成功");
+                    }
+                    if (back.State == 2)
+                    {
+                        DebugInfo("状态:失败");
+                    }
+                }
+                else
+                {
+                    DebugInfo("错误:"+ back.ErrCode.ToString("X2"));
+                }
+            }
+            catch (Exception ex)
+            {
+                DebugInfo(ex.Message);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(LastOrdernum))
+            {
+                DebugInfo("没有上个单号");
+                return;
+            }
+            try
+            {
+                var back = GameMac.SendAndBackMsg<Msg_CancelOrder_Back>(new Msg_CancelOrder_Event()
+                {
+                    ADR = 1,
+                    OrderNum = LastOrdernum,
+                    Reseaon=1,
+                }, 15000);
+
+                if (back.ErrCode == 0)
+                {
+                    DebugInfo("成功");
+                }
+                else
+                {
+                    DebugInfo("错误:" + back.ErrCode.ToString("X2"));
+                }
             }
             catch (Exception ex)
             {

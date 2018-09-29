@@ -11,7 +11,7 @@ namespace CNGPI
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        public static string ByteToStr(byte[] bytes)
+        public static string ByteToHex(byte[] bytes)
         {
             string str = "";
             foreach (byte bt in bytes)
@@ -26,7 +26,7 @@ namespace CNGPI
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        public static string ByteToStr2(byte[] bytes)
+        public static string ByteToHex2(byte[] bytes)
         {
             string str = "";
             foreach (byte bt in bytes)
@@ -36,12 +36,26 @@ namespace CNGPI
             return str;
         }
 
+        public static byte[] StrToByte(string data,int length)
+        {
+            byte[] dataname = System.Text.Encoding.UTF8.GetBytes(data);
+            if (dataname.Length > length) throw new Exception("内容太长");
+            byte[] datawtname = new byte[length];
+            Array.Copy(dataname, datawtname, dataname.Length);
+            return datawtname;
+        }
+
+        public static string ByteToStr(byte[] data)
+        {
+            return System.Text.Encoding.UTF8.GetString(data).Replace("\0", "");
+        }
+
         /// <summary>
         /// 字符转字节
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static byte[] StrToByte(string data)
+        public static byte[] HexToByte(string data)
         {
             List<byte> bts = new List<byte>();
             for (int i = 0; i < data.Length; i += 2)

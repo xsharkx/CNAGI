@@ -43,20 +43,20 @@ namespace CNGPI
         public override int PID => 0x0281;
         public int TransID { get; set; }
 
-        public int Result { get; set; }
+        public int ErrCode { get; set; }
 
         protected override void ReadData(MsgDataStream stream)
         {
             base.ReadData(stream);
             TransID = stream.ReadInt16();
-            Result= stream.ReadInt16();
+            ErrCode= stream.ReadInt16();
         }
 
         protected override void WriteData(MsgDataStream stream)
         {
             base.WriteData(stream);
             stream.WriteInt16(TransID);
-            stream.WriteInt16(Result);
+            stream.WriteInt16(ErrCode);
         }
     }
 }

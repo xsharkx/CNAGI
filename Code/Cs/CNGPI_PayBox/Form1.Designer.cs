@@ -40,6 +40,7 @@
             this.base_comname = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.grp_sync = new System.Windows.Forms.GroupBox();
+            this.sync_bt_sync = new System.Windows.Forms.Button();
             this.sync_lab_state = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.sync_cb_state = new System.Windows.Forms.ComboBox();
@@ -93,7 +94,12 @@
             this.all_bt_restart = new System.Windows.Forms.Button();
             this.grp_nomal = new System.Windows.Forms.GroupBox();
             this.all_bt_real = new System.Windows.Forms.Button();
-            this.sync_bt_sync = new System.Windows.Forms.Button();
+            this.grp_sell = new System.Windows.Forms.GroupBox();
+            this.sell_paying = new System.Windows.Forms.Button();
+            this.sell_bt_checkpro = new System.Windows.Forms.Button();
+            this.sell_bt_setpro = new System.Windows.Forms.Button();
+            this.sell_bt_payerr = new System.Windows.Forms.Button();
+            this.sell_bt_payok = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -108,6 +114,7 @@
             this.grp_tigket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.all_num_coin)).BeginInit();
             this.grp_nomal.SuspendLayout();
+            this.grp_sell.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -119,7 +126,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1035, 79);
+            this.panel1.Size = new System.Drawing.Size(1032, 79);
             this.panel1.TabIndex = 3;
             // 
             // linkLabel1
@@ -227,6 +234,16 @@
             this.grp_sync.TabIndex = 5;
             this.grp_sync.TabStop = false;
             this.grp_sync.Text = "状态同步";
+            // 
+            // sync_bt_sync
+            // 
+            this.sync_bt_sync.Location = new System.Drawing.Point(6, 101);
+            this.sync_bt_sync.Name = "sync_bt_sync";
+            this.sync_bt_sync.Size = new System.Drawing.Size(268, 40);
+            this.sync_bt_sync.TabIndex = 11;
+            this.sync_bt_sync.Text = "同步";
+            this.sync_bt_sync.UseVisualStyleBackColor = true;
+            this.sync_bt_sync.Click += new System.EventHandler(this.sync_bt_sync_Click);
             // 
             // sync_lab_state
             // 
@@ -811,21 +828,77 @@
             this.all_bt_real.UseVisualStyleBackColor = true;
             this.all_bt_real.Click += new System.EventHandler(this.all_bt_real_Click);
             // 
-            // sync_bt_sync
+            // grp_sell
             // 
-            this.sync_bt_sync.Location = new System.Drawing.Point(6, 101);
-            this.sync_bt_sync.Name = "sync_bt_sync";
-            this.sync_bt_sync.Size = new System.Drawing.Size(268, 40);
-            this.sync_bt_sync.TabIndex = 11;
-            this.sync_bt_sync.Text = "同步";
-            this.sync_bt_sync.UseVisualStyleBackColor = true;
-            this.sync_bt_sync.Click += new System.EventHandler(this.sync_bt_sync_Click);
+            this.grp_sell.Controls.Add(this.sell_paying);
+            this.grp_sell.Controls.Add(this.sell_bt_checkpro);
+            this.grp_sell.Controls.Add(this.sell_bt_setpro);
+            this.grp_sell.Controls.Add(this.sell_bt_payerr);
+            this.grp_sell.Controls.Add(this.sell_bt_payok);
+            this.grp_sell.Enabled = false;
+            this.grp_sell.Location = new System.Drawing.Point(298, 521);
+            this.grp_sell.Name = "grp_sell";
+            this.grp_sell.Size = new System.Drawing.Size(294, 136);
+            this.grp_sell.TabIndex = 10;
+            this.grp_sell.TabStop = false;
+            this.grp_sell.Text = "售货机";
+            // 
+            // sell_paying
+            // 
+            this.sell_paying.Location = new System.Drawing.Point(105, 24);
+            this.sell_paying.Name = "sell_paying";
+            this.sell_paying.Size = new System.Drawing.Size(84, 37);
+            this.sell_paying.TabIndex = 33;
+            this.sell_paying.Text = "支付中";
+            this.sell_paying.UseVisualStyleBackColor = true;
+            this.sell_paying.Click += new System.EventHandler(this.sell_paying_Click);
+            // 
+            // sell_bt_checkpro
+            // 
+            this.sell_bt_checkpro.Location = new System.Drawing.Point(148, 66);
+            this.sell_bt_checkpro.Name = "sell_bt_checkpro";
+            this.sell_bt_checkpro.Size = new System.Drawing.Size(130, 37);
+            this.sell_bt_checkpro.TabIndex = 32;
+            this.sell_bt_checkpro.Text = "盘点商品";
+            this.sell_bt_checkpro.UseVisualStyleBackColor = true;
+            this.sell_bt_checkpro.Click += new System.EventHandler(this.sell_bt_checkpro_Click);
+            // 
+            // sell_bt_setpro
+            // 
+            this.sell_bt_setpro.Location = new System.Drawing.Point(9, 66);
+            this.sell_bt_setpro.Name = "sell_bt_setpro";
+            this.sell_bt_setpro.Size = new System.Drawing.Size(130, 37);
+            this.sell_bt_setpro.TabIndex = 31;
+            this.sell_bt_setpro.Text = "设置商品";
+            this.sell_bt_setpro.UseVisualStyleBackColor = true;
+            this.sell_bt_setpro.Click += new System.EventHandler(this.sell_bt_setpro_Click);
+            // 
+            // sell_bt_payerr
+            // 
+            this.sell_bt_payerr.Location = new System.Drawing.Point(194, 24);
+            this.sell_bt_payerr.Name = "sell_bt_payerr";
+            this.sell_bt_payerr.Size = new System.Drawing.Size(84, 37);
+            this.sell_bt_payerr.TabIndex = 30;
+            this.sell_bt_payerr.Text = "支付失败";
+            this.sell_bt_payerr.UseVisualStyleBackColor = true;
+            this.sell_bt_payerr.Click += new System.EventHandler(this.sell_bt_payerr_Click);
+            // 
+            // sell_bt_payok
+            // 
+            this.sell_bt_payok.Location = new System.Drawing.Point(9, 24);
+            this.sell_bt_payok.Name = "sell_bt_payok";
+            this.sell_bt_payok.Size = new System.Drawing.Size(91, 37);
+            this.sell_bt_payok.TabIndex = 29;
+            this.sell_bt_payok.Text = "支付完成";
+            this.sell_bt_payok.UseVisualStyleBackColor = true;
+            this.sell_bt_payok.Click += new System.EventHandler(this.sell_bt_payok_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 661);
+            this.ClientSize = new System.Drawing.Size(1032, 663);
+            this.Controls.Add(this.grp_sell);
             this.Controls.Add(this.grp_tigket);
             this.Controls.Add(this.grp_gift);
             this.Controls.Add(this.grp_nomal);
@@ -862,6 +935,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.all_num_coin)).EndInit();
             this.grp_nomal.ResumeLayout(false);
             this.grp_nomal.PerformLayout();
+            this.grp_sell.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -933,6 +1007,12 @@
         private System.Windows.Forms.Button base_bt_fresh;
         private System.Windows.Forms.Button all_bt_real;
         private System.Windows.Forms.Button sync_bt_sync;
+        private System.Windows.Forms.GroupBox grp_sell;
+        private System.Windows.Forms.Button sell_bt_payerr;
+        private System.Windows.Forms.Button sell_bt_payok;
+        private System.Windows.Forms.Button sell_bt_checkpro;
+        private System.Windows.Forms.Button sell_bt_setpro;
+        private System.Windows.Forms.Button sell_paying;
     }
 }
 

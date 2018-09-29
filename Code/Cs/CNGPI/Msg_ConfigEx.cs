@@ -23,18 +23,18 @@ namespace CNGPI
     public class Msg_ConfigEx_Back : Message, IBackMsg
     {
         public override int PID => 0x0187;
-        public int Result { get; set; }
+        public int ErrCode { get; set; }
 
         protected override void ReadData(MsgDataStream stream)
         {
             base.ReadData(stream);
-            Result = stream.ReadInt16();
+            ErrCode = stream.ReadInt16();
         }
 
         protected override void WriteData(MsgDataStream stream)
         {
             base.WriteData(stream);
-            stream.WriteInt16(Result);
+            stream.WriteInt16(ErrCode);
         }
     }
 }

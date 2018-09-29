@@ -202,13 +202,13 @@ namespace CNGPI
                 serialPort.DataReceived += SerialPort_DataReceived;
                 Msg_Connect_Event msg_Connect_Event = new Msg_Connect_Event();
                 msg_Connect_Event.ADR = 0;
-                msg_Connect_Event.DeviceID = Utility.StrToByte(LocalDev.ID);
+                msg_Connect_Event.DeviceID = Utility.HexToByte(LocalDev.ID);
                 msg_Connect_Event.DeviceType = LocalDev.DeviceType;
                 msg_Connect_Event.ProductNum = LocalDev.ProductNum;
                 var back = SendAndBackMsg<Msg_Connect_Back>(msg_Connect_Event,2000);
                 RemoteDev = new DeviceInfo(back.ProductNum);
                 RemoteDev.GamePortCount = back.GamePortCount;
-                RemoteDev.ID = Utility.ByteToStr(back.DeviceID);
+                RemoteDev.ID = Utility.ByteToHex(back.DeviceID);
                 RemoteDev.CurrPortIndex = back.CurrGamePortIndex;
                 RemoteDev.UseVer = back.GPIVersion;
                 RemoteDev.DeviceType= back.DeviceType;
@@ -405,7 +405,13 @@ namespace CNGPI
                 }
                 recivemsg = ReadMsgFromPort();
             }
-            serialPort.ReadExisting();
+            //int Existlen = serialPort.BytesToRead;
+            //if (Existlen >=8)
+            //{
+            //    byte[] bts = new byte[Existlen];
+            //    serialPort.Read(bts, 0, bts.Length);
+            //    OnIODebug?.Invoke("丢弃数据:", bts);
+            //}
         }
 
         public void Dispose()

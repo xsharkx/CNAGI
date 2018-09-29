@@ -43,6 +43,12 @@
     <Compile Include="ITransMsg.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MsgDataStream.cs" />
+    <Compile Include="Msg_CheckCount.cs" />
+    <Compile Include="Msg_SetPrdInfo.cs" />
+    <Compile Include="Msg_QueryOrder.cs" />
+    <Compile Include="Msg_CancelOrder.cs" />
+    <Compile Include="Msg_PayOrder.cs" />
+    <Compile Include="Msg_CreateOrder.cs" />
     <Compile Include="Msg_GetConfigEx.cs" />
     <Compile Include="Msg_ConfigEx.cs" />
     <Compile Include="Msg_Config.cs" />

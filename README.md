@@ -3,12 +3,12 @@
 
 CNGPI(China Gaming devices Public Interface)
 
-此logo用于标记自己产品已支持此协议， [矢量图下载](https://github.com/xsharkx/CNGPI/raw/master/logo/CNGPIV1.ai) （点击进去，然后点击Download 进行下载）
+此logo用于标记自己产品已支持此协议， [矢量图下载](https://github.com/xsharkx/CNGPI/raw/master/logo/CNGPIV1.ai)
 
 PC版调试工具 
-[盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.zip)
-[游戏机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameV1.zip)
-（点击进去，然后点击Download 进行下载）
+[盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.09.zip)
+[游戏机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameV1.09.zip)
+[游戏售货机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.09.zip)
 
 ## 一 摘要
 本文档定义出游戏机与周边设备互动的通讯协议，包括如下用途：
@@ -793,7 +793,7 @@ EF37|0000|0301|001F|00000001 00000001 FA00FCCDA57D8990FA00FCCDA57D8990 0101|4849
 
 数据方向:游戏机->外接设备
 
-说明：游戏机需要将完成的订单或正在支付的订单取消掉，500ms超时，超时重试10次
+说明：游戏机需要将完成的订单或正在支付的订单取消掉，15秒超时，超时重试10次
 
 游戏机发送内容（DATA）如下:
 
@@ -839,7 +839,7 @@ EF37|0000|0301|001F|00000001 00000001 FA00FCCDA57D8990FA00FCCDA57D8990 0101|4849
 
 数据方向:外接设备->游戏机
 
-说明：当格子的商品或价格发生变化时通知到售货机,500ms超时，超时重试10次
+说明：当格子的商品或价格发生变化时通知到售货机,1秒超时，超时重试10次
 
 设备发送内容（DATA）如下:
 
@@ -847,8 +847,8 @@ EF37|0000|0301|001F|00000001 00000001 FA00FCCDA57D8990FA00FCCDA57D8990 0101|4849
 ---|---|---
 事务ID|2Byte|同上
 格子号|2Byte|变化的格子序号
-价格|2Byte|单位（分）
-成本|2Byte|单位（分）
+价格|2Byte|单位（分）用于计算出奖概率和直接购买
+成本|2Byte|单位（分）用于计算出奖概率
 名称|64Byte|utf-8编码的文字
 图片URL|200Byte|的URL，用于显示，0=结束
 
@@ -867,7 +867,7 @@ EF37|0000|0301|001F|00000001 00000001 FA00FCCDA57D8990FA00FCCDA57D8990 0101|4849
 
 数据方向:外接设备->游戏机
 
-说明：用户后台补货后将库存同步到设备,500ms超时，超时重试10次
+说明：用户后台补货后将库存同步到设备,1秒超时，超时重试10次
 
 设备发送内容（DATA）如下:
 

@@ -110,6 +110,18 @@ namespace CNGPI
             RegMsg(typeof(Msg_Sync_Event));
             RegMsg(typeof(Msg_TicketConfig_Back));
             RegMsg(typeof(Msg_TicketConfig_Event));
+            RegMsg(typeof(Msg_CreateOrder_Event));
+            RegMsg(typeof(Msg_CreateOrder_Back));
+            RegMsg(typeof(Msg_PayOrder_Event));
+            RegMsg(typeof(Msg_PayOrder_Back));
+            RegMsg(typeof(Msg_CancelOrder_Event));
+            RegMsg(typeof(Msg_CancelOrder_Back));
+            RegMsg(typeof(Msg_QueryOrder_Event));
+            RegMsg(typeof(Msg_QueryOrder_Back));
+            RegMsg(typeof(Msg_SetPrdInfo_Event));
+            RegMsg(typeof(Msg_SetPrdInfo_Back));
+            RegMsg(typeof(Msg_CheckCount_Event));
+            RegMsg(typeof(Msg_CheckCount_Back));
         }
 
         public static Message ParseFromData(byte[] data,int datalength)

@@ -46,6 +46,25 @@ namespace CNGPI
             return buffer;
         }
 
+        public string ReadString(int len)
+        {            
+            return Utility.ByteToStr(ReadByteArray(len));
+        }
+
+        public string ReadHex(int len)
+        {
+            return Utility.ByteToHex(ReadByteArray(len));
+        }
+        public void WriteHex(string hex)
+        {
+            WriteByteArray(Utility.HexToByte(hex));
+        }
+
+        public void WriteString(string content,int len)
+        {
+            WriteByteArray(Utility.StrToByte(content,len));
+        }
+
         public void  WriteByteArray(Byte[] data)
         {
             stream.Write(data, 0, data.Length);
