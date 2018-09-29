@@ -3,11 +3,11 @@
 
 CNGPI(China Gaming devices Public Interface)
 
-此logo用于标记自己产品已支持此协议， [矢量图下载](logo/CNGPIV1.ai) （点击进去，然后点击Download 进行下载）
+此logo用于标记自己产品已支持此协议， [矢量图下载](https://github.com/xsharkx/CNGPI/raw/master/logo/CNGPIV1.ai) （点击进去，然后点击Download 进行下载）
 
 PC版调试工具 
-[盒子模拟器](Tools/CNGPI_PayBoxV1.zip)
-[游戏机模拟器](Tools/CNGPI_GameV1.zip)  
+[盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.zip)
+[游戏机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameV1.zip)
 （点击进去，然后点击Download 进行下载）
 
 ## 一 摘要
@@ -848,6 +848,7 @@ EF37|0000|0301|001F|00000001 00000001 FA00FCCDA57D8990FA00FCCDA57D8990 0101|4849
 事务ID|2Byte|同上
 格子号|2Byte|变化的格子序号
 价格|2Byte|单位（分）
+成本|2Byte|单位（分）
 名称|64Byte|utf-8编码的文字
 图片URL|200Byte|的URL，用于显示，0=结束
 
