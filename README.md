@@ -7,7 +7,7 @@ CNGPI(China Gaming devices Public Interface)
 
 PC版调试工具 
 [盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.09.zip)
-[游戏机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameV1.09.zip)
+[礼品机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameMachineV1.09.zip)
 [游戏售货机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.09.zip)
 
 ## 一 摘要
