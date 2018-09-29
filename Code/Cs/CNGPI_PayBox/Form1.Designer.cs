@@ -100,6 +100,7 @@
             this.sell_bt_setpro = new System.Windows.Forms.Button();
             this.sell_bt_payerr = new System.Windows.Forms.Button();
             this.sell_bt_payok = new System.Windows.Forms.Button();
+            this.sell_settime = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -830,6 +831,7 @@
             // 
             // grp_sell
             // 
+            this.grp_sell.Controls.Add(this.sell_settime);
             this.grp_sell.Controls.Add(this.sell_paying);
             this.grp_sell.Controls.Add(this.sell_bt_checkpro);
             this.grp_sell.Controls.Add(this.sell_bt_setpro);
@@ -855,9 +857,9 @@
             // 
             // sell_bt_checkpro
             // 
-            this.sell_bt_checkpro.Location = new System.Drawing.Point(148, 66);
+            this.sell_bt_checkpro.Location = new System.Drawing.Point(105, 66);
             this.sell_bt_checkpro.Name = "sell_bt_checkpro";
-            this.sell_bt_checkpro.Size = new System.Drawing.Size(130, 37);
+            this.sell_bt_checkpro.Size = new System.Drawing.Size(84, 37);
             this.sell_bt_checkpro.TabIndex = 32;
             this.sell_bt_checkpro.Text = "盘点商品";
             this.sell_bt_checkpro.UseVisualStyleBackColor = true;
@@ -867,7 +869,7 @@
             // 
             this.sell_bt_setpro.Location = new System.Drawing.Point(9, 66);
             this.sell_bt_setpro.Name = "sell_bt_setpro";
-            this.sell_bt_setpro.Size = new System.Drawing.Size(130, 37);
+            this.sell_bt_setpro.Size = new System.Drawing.Size(92, 37);
             this.sell_bt_setpro.TabIndex = 31;
             this.sell_bt_setpro.Text = "设置商品";
             this.sell_bt_setpro.UseVisualStyleBackColor = true;
@@ -892,6 +894,16 @@
             this.sell_bt_payok.Text = "支付完成";
             this.sell_bt_payok.UseVisualStyleBackColor = true;
             this.sell_bt_payok.Click += new System.EventHandler(this.sell_bt_payok_Click);
+            // 
+            // sell_settime
+            // 
+            this.sell_settime.Location = new System.Drawing.Point(194, 66);
+            this.sell_settime.Name = "sell_settime";
+            this.sell_settime.Size = new System.Drawing.Size(84, 37);
+            this.sell_settime.TabIndex = 34;
+            this.sell_settime.Text = "设置时间";
+            this.sell_settime.UseVisualStyleBackColor = true;
+            this.sell_settime.Click += new System.EventHandler(this.sell_settime_Click);
             // 
             // Form1
             // 
@@ -1013,6 +1025,7 @@
         private System.Windows.Forms.Button sell_bt_checkpro;
         private System.Windows.Forms.Button sell_bt_setpro;
         private System.Windows.Forms.Button sell_paying;
+        private System.Windows.Forms.Button sell_settime;
     }
 }
 

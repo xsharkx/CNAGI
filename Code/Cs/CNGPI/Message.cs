@@ -122,6 +122,9 @@ namespace CNGPI
             RegMsg(typeof(Msg_SetPrdInfo_Back));
             RegMsg(typeof(Msg_CheckCount_Event));
             RegMsg(typeof(Msg_CheckCount_Back));
+            RegMsg(typeof(Msg_SetTime_Event));
+            RegMsg(typeof(Msg_SetTime_Back));
+            
         }
 
         public static Message ParseFromData(byte[] data,int datalength)

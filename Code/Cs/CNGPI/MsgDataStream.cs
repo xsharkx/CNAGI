@@ -27,6 +27,27 @@ namespace CNGPI
             return (bt[0] << 8) | bt[1];
         }
 
+        public long ReadInt64()
+        {
+            byte[] bt = ReadByteArray(8);
+            return ((long)bt[0] << 56) | ((long)bt[1] << 48) | ((long)bt[2] << 40) | ((long)bt[3] << 32) | ((long)bt[4] << 24) | ((long)bt[5] << 16) | ((long)bt[6] << 8) | ((long)bt[7]);
+        }
+
+        public void WriteInt64(long val)
+        {
+            byte[] bt = new byte[] {
+                 (byte)((val>>56)&0x000000ff),
+                 (byte)((val>>48)&0x000000ff),
+                  (byte)((val>>40)&0x000000ff),
+                   (byte)((val>>32)&0x000000ff),
+                (byte)((val>>24)&0x000000ff),
+                 (byte)((val>>16)&0x000000ff),
+                  (byte)((val>>8)&0x000000ff),
+                   (byte)((val)&0x000000ff)
+            };
+            WriteByteArray(bt);
+        }
+
         public uint ReadInt32()
         {
             byte[] bt = ReadByteArray(4);

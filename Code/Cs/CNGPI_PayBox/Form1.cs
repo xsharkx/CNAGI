@@ -675,5 +675,29 @@ namespace CNGPI_PayBox
                 DebugInfo(ex.Message);
             }
         }
+
+        public long GetTimeLikeJS()
+        {
+            long lLeft = 621355968000000000;
+            DateTime dt = DateTime.Now;
+            long Sticks = (dt.Ticks - lLeft) / 10000;
+            return Sticks;
+        }
+
+        private void sell_settime_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var back = PayBox.SendAndBackMsg<CNGPI.Msg_SetTime_Back>(new CNGPI.Msg_SetTime_Event()
+                {
+                    ADR = PayBox.RemoteDev.CurrPortIndex,
+                    Time= GetTimeLikeJS()/1000
+                }, 2000);
+            }
+            catch (Exception ex)
+            {
+                DebugInfo(ex.Message);
+            }
+        }
     }
 }

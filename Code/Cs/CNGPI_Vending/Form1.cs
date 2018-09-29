@@ -228,6 +228,11 @@ namespace CNGPI_Vending
                         ErrCode = 0,
                         TransID = (msg as CNGPI.ITransMsg).TransID
                     };
+                case 0x0407:
+                    return new CNGPI.Msg_SetTime_Back()
+                    {
+                        ADR = 1,
+                    };
                 default:
                     return null;
             }
