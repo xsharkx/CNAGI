@@ -115,11 +115,9 @@ V1.09|20180929|Benny|加入游戏售货机支持（口红机）
 - 付款码反扫：会员在手机出示微信或支付宝付款吗，被游戏机扫描后进行支付的一种支付形式
 - 扫码头：单纯实现将二维码或条码扫描到后将结果通过接口传递出去的设备，一般内嵌到设备中
 - 事务ID：用于防止重发与漏发用的一个循环使用的ID，游戏机与外接设备自行维护每次使用后加一，溢出归零后继续循环，如接收到的事务ID与上次相同，视为已经处理过，回应成功。如果收到的事务ID不等于上次收到的事务ID表示需要进行处理和回应并将最新的ID记录起来。事务ID的累加由发送方控制，如两方都需要发送，那么两方需要各自保存发送的事务ID和接收的事务ID，此两个ID是没有必然关系的，编写程序时别弄反。
-'''
-/// <summary>
-        /// 得到下次事务ID
-        /// </summary>
-        /// <returns></returns>
+
+```
+        // 得到下次事务ID
         private int GetNextTransID()
         {
             LastSendTransID++;
@@ -130,16 +128,12 @@ V1.09|20180929|Benny|加入游戏售货机支持（口红机）
             return LastSendTransID;
         }
 
-        /// <summary>
-        /// 判断是否接收过
-        /// </summary>
-        /// <param name="transID"></param>
-        /// <returns></returns>
+        // 判断是否接收过
         private bool IsNewTransID(int transID)
         {
             return LastReciveTransID != transID;
-        }
-'''
+        }        
+```
 
 - 厂商标识：标记各生产厂商的序号
 - 产品标识：厂商出厂的某型号产品序号
