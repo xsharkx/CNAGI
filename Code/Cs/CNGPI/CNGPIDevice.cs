@@ -257,7 +257,7 @@ namespace CNGPI
         }
 
         /// <summary>
-        /// 得到下次
+        /// 得到下次事务ID
         /// </summary>
         /// <returns></returns>
         private int GetNextTransID()
