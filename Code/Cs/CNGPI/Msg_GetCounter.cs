@@ -7,6 +7,11 @@ namespace CNGPI
     public class Msg_GetCounter_Event : Message
     {
         public override int PID => 0x010B;
+
+        public override string ToString()
+        {
+            return $"获取码表数据";
+        }
     }
 
     public class Msg_GetCounter_Back : Message, IBackMsg
@@ -24,7 +29,7 @@ namespace CNGPI
 
         public override string ToString()
         {
-            return $"实物币数:{PCoins}\r\n电子币数:{ECoins}\r\n礼品数:{PGifts}\r\n票数:{PTickets}";
+            return $"回应获取码表数据:实物币数:{PCoins}电子币数:{ECoins}礼品数:{PGifts}票数:{PTickets}";
         }
 
         protected override void ReadData(MsgDataStream stream)

@@ -22,6 +22,12 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteHex(OrderNum);
         }
+
+        public override string ToString()
+        {
+            return $"查询订单:单号:{OrderNum}";
+        }
+
     }
 
     public class Msg_QueryOrder_Back : Message, IBackMsg
@@ -43,6 +49,11 @@ namespace CNGPI
             stream.WriteInt16(ErrCode);
             stream.WriteByte((byte)State);
         }
+        public override string ToString()
+        {
+            return $"回应查询订单:状态:{State}";
+        }
+
     }
 
     

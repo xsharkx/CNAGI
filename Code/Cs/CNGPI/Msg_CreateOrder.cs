@@ -28,6 +28,11 @@ namespace CNGPI
             stream.WriteInt16(Price);
             stream.WriteHex(OrderNum);
         }
+
+        public override string ToString()
+        {
+            return $"创建订单:格子号:{BoxNum},价格:{Price},单号:{OrderNum}";
+        }
     }
 
     public class Msg_CreateOrder_Back : Message, IBackMsg
@@ -57,6 +62,11 @@ namespace CNGPI
             stream.WriteHex(OrderNum);
             stream.WriteByte((byte)State);
             stream.WriteString(QrCode,150);
+        }
+
+        public override string ToString()
+        {
+            return $"回应创建订单:二维码:{QrCode},状态:{State},单号:{OrderNum}";
         }
     }
 

@@ -39,6 +39,11 @@ namespace CNGPI
             stream.WriteInt16(WinCoins);
             stream.WriteInt16(WinGifts);
         }
+
+        public override string ToString()
+        {
+            return $"娃娃机配置:每局币数:{CoinsPerTimes},游戏时间:{GameSec},弱爪力:{LowPower},强爪力:{HightPower},概率:{WinGifts}奖/{WinCoins}币";
+        }
     }
 
     public class Msg_GiftConfig_Back : Message, IBackMsg
@@ -56,6 +61,11 @@ namespace CNGPI
         {
             base.WriteData(stream);
             stream.WriteInt16(ErrCode);
+        }
+
+        public override string ToString()
+        {
+            return $"回应娃娃机配置";
         }
     }
 }

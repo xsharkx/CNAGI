@@ -103,7 +103,7 @@ namespace CNGPI
                         (msg as ITransMsg).TransID = GetNextTransID();
                     }
                     byte[] data = msg.GetMsgData();
-                    OnIODebug?.Invoke("发送", data);
+                    OnIODebug?.Invoke("发送\r\n"+msg.ToString(), data);
                     backMsg = null;
                     LastSend = System.DateTime.Now;                    
                     serialPort.Write(data, 0, data.Length);
@@ -146,7 +146,7 @@ namespace CNGPI
                         System.Threading.Thread.Sleep(6);//如果连续发送需要间隔6毫秒
                     }
                     byte[] data = msg.GetMsgData();
-                    OnIODebug?.Invoke("发送", data);
+                    OnIODebug?.Invoke(msg.ToString(), data);
                     backMsg = null;
                     LastSend = System.DateTime.Now;
                     serialPort.Write(data, 0, data.Length);
@@ -370,12 +370,6 @@ namespace CNGPI
                 OnIODebug?.Invoke("数据校验错误", bts);
                 return null;
             }
-            if (OnIODebug != null)
-            {
-                byte[] bts = new byte[bufferlength];
-                Array.Copy(buffer, bts, bufferlength);
-                OnIODebug("收到", bts);
-            }
             Message recivemsg = Message.ParseFromData(buffer, bufferlength);
             if (recivemsg == null)
             {
@@ -383,6 +377,12 @@ namespace CNGPI
                 Array.Copy(buffer, bts, bufferlength);
                 OnIODebug("不支持的指令", bts);
                 return null;
+            }
+            if (OnIODebug != null)
+            {
+                byte[] bts = new byte[bufferlength];
+                Array.Copy(buffer, bts, bufferlength);
+                OnIODebug("收到"+recivemsg.ToString(), bts);
             }
             return recivemsg;
         }

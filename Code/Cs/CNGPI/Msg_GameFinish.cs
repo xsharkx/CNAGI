@@ -25,7 +25,7 @@ namespace CNGPI
 
         public override string ToString()
         {
-            return $"事务:{TransID}\r\n出奖数:{OutGift}\r\n出奖类型:{GiftType}\r\n端口:{GiftPort}";
+            return $"游戏结束:事务:{TransID},出奖数:{OutGift},出奖类型:{GiftType},端口:{GiftPort}";
         }
 
         protected override void WriteData(MsgDataStream stream)
@@ -56,6 +56,11 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteInt16(TransID);
             stream.WriteInt16(ErrCode);
+        }
+
+        public override string ToString()
+        {
+            return $"回应游戏结束:错误码:{ErrCode}";
         }
     }
 }

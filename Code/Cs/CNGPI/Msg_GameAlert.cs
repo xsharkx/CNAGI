@@ -23,6 +23,11 @@ namespace CNGPI
             stream.WriteInt16(TransID);
             stream.WriteByte((byte)AlertType);
         }
+
+        public override string ToString()
+        {
+            return $"游戏机报警:类型:{AlertType}";
+        }
     }
 
     public class Msg_GameAlert_Back : Message, IBackMsg
@@ -40,6 +45,10 @@ namespace CNGPI
         {
             base.WriteData(stream);
             stream.WriteInt16(TransID);
+        }
+        public override string ToString()
+        {
+            return $"回应游戏机报警";
         }
     }
 }

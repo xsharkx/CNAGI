@@ -7,6 +7,11 @@ namespace CNGPI
     public class Msg_GetGiftConfig_Event : Message
     {
         public override int PID => 0x0203;
+
+        public override string ToString()
+        {
+            return $"获取娃娃机配置";
+        }
     }
 
     public class Msg_GetGiftConfig_Back : Message, IBackMsg
@@ -48,6 +53,11 @@ namespace CNGPI
             stream.WriteByte((byte)HightPower);
             stream.WriteInt16(WinCoins);
             stream.WriteInt16(WinGifts);
+        }
+
+        public override string ToString()
+        {
+            return $"回应获取娃娃机配置:每局币数:{CoinsPerTimes},游戏时间:{GameSec},弱爪力:{LowPower},强爪力:{HightPower},概率:{WinGifts}奖/{WinCoins}币";
         }
     }
 }

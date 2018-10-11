@@ -30,6 +30,11 @@ namespace CNGPI
             stream.WriteHex(OrderNum);
             stream.WriteByte((byte)Reseaon);
         }
+
+        public override string ToString()
+        {
+            return $"请求取消订单:单号:{OrderNum}";
+        }
     }
 
     public class Msg_CancelOrder_Back : Message, IBackMsg
@@ -50,6 +55,10 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteInt16(ErrCode);
             stream.WriteInt16(TransID);
+        }
+        public override string ToString()
+        {
+            return $"响应取消订单:错误码:{ErrCode}";
         }
     }
 }

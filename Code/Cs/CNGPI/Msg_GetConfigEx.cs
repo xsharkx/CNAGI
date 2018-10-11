@@ -7,6 +7,10 @@ namespace CNGPI
     public class Msg_GetConfigEx_Event:Message
     {
         public override int PID => 0x010A;
+        public override string ToString()
+        {
+            return $"获取扩展配置";
+        }
     }
 
     public class Msg_GetConfigEx_Back : Message, IBackMsg
@@ -28,6 +32,11 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteInt16(ErrCode);
             stream.WriteByteArray(ExData);
+        }
+
+        public override string ToString()
+        {
+            return $"回应获取扩展配置";
         }
     }
 }

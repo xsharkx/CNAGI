@@ -28,6 +28,7 @@ namespace CNGPI
         /// <returns></returns>
         public static string ByteToHex2(byte[] bytes)
         {
+            if (bytes == null) return "";
             string str = "";
             foreach (byte bt in bytes)
             {

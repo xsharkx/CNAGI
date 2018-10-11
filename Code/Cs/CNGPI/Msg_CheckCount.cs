@@ -28,6 +28,11 @@ namespace CNGPI
             stream.WriteInt16(BoxNum);
             stream.WriteInt16(Amount);
         }
+
+        public override string ToString()
+        {
+            return $"盘点库存:箱号:{BoxNum},数量:{Amount}";
+        }
     }
 
     public class Msg_CheckCount_Back : Message, IBackMsg
@@ -47,6 +52,11 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteInt16(TransID);
             stream.WriteInt16(ErrCode);
+        }
+
+        public override string ToString()
+        {
+            return $"回应盘点库存:错误码:{ErrCode}";
         }
     }
 }

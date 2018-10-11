@@ -26,6 +26,12 @@ namespace CNGPI
              stream.WriteInt16(Coins);
              stream.WriteByte((byte)CoinType);
         }
+
+        public override string ToString()
+        {
+            return $"支付:币数:{Coins},币类型:{CoinType}";
+        }
+
     }
 
     public class Msg_Pay_Back : Message, IBackMsg
@@ -47,5 +53,10 @@ namespace CNGPI
              stream.WriteInt16(TransID);
              stream.WriteInt16(ErrCode);
         }
+        public override string ToString()
+        {
+            return $"回应支付:错误码:{ErrCode}";
+        }
+
     }
 }

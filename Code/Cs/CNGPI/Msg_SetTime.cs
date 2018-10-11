@@ -21,6 +21,12 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteInt64(Time);
         }
+
+        public override string ToString()
+        {
+            return $"设置系统时间";
+        }
+
     }
 
     /// <summary>
@@ -29,5 +35,10 @@ namespace CNGPI
     public class Msg_SetTime_Back : Message, IBackMsg
     {
         public override int PID => 0x0487;
+
+        public override string ToString()
+        {
+            return $"回应设置系统时间";
+        }
     }
 }

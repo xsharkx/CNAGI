@@ -18,6 +18,10 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteByte((byte)CoinsPerTimes);
         }
+        public override string ToString()
+        {
+            return $"通用设置:每局币数:{CoinsPerTimes}";
+        }
     }
 
     public class Msg_Config_Back : Message, IBackMsg
@@ -35,6 +39,10 @@ namespace CNGPI
         {
             base.WriteData(stream);
             stream.WriteInt16(ErrCode);
+        }
+        public override string ToString()
+        {
+            return $"回应通用设置:错误码:{ErrCode}";
         }
     }
 }

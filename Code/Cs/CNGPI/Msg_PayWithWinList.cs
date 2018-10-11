@@ -36,6 +36,16 @@ namespace CNGPI
             }
             stream.WriteByteArray(list);
         }
+        public override string ToString()
+        {
+            byte[] list = new byte[WinList.Count];
+            for (int i = 0; i < WinList.Count; i++)
+            {
+                list[i] = (byte)WinList[i];
+            }
+            return $"支付带概率:局数:{WinList.Count},序列:{Utility.ByteToHex(list)}";
+        }
+
     }
 
     public class Msg_PayWithWinList_Back : Message, IBackMsg
@@ -57,6 +67,11 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteInt16(TransID);
             stream.WriteInt16(ErrCode);
+        }
+
+        public override string ToString()
+        {
+            return $"回应支付带概率";
         }
     }
 }

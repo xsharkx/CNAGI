@@ -18,6 +18,18 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteByteArray(ExData);
         }
+
+        public override string ToString()
+        {
+            if (ExData != null)
+            {
+                return $"扩展设置:长度:{ExData.Length}";
+            }
+            else
+            {
+                return $"扩展设置:长度:0";
+            }
+        }
     }
 
     public class Msg_ConfigEx_Back : Message, IBackMsg
@@ -35,6 +47,11 @@ namespace CNGPI
         {
             base.WriteData(stream);
             stream.WriteInt16(ErrCode);
+        }
+
+        public override string ToString()
+        {
+            return $"回应扩展设置:错误码:{ErrCode}";
         }
     }
 }

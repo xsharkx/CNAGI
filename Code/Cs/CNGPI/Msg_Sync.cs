@@ -24,6 +24,11 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteInt16(State);
         }
+
+        public override string ToString()
+        {
+            return $"状态同步:状态:{State}";
+        }
     }
 
     /// <summary>
@@ -57,6 +62,10 @@ namespace CNGPI
             stream.WriteInt16(RemainCoin);
             stream.WriteInt16(RemainSec);
             stream.WriteInt16(ErrCode);
+        }
+        public override string ToString()
+        {
+            return $"回应状态同步:状态:{State},余币{RemainCoin},剩余时间:{RemainSec}";
         }
     }
 }

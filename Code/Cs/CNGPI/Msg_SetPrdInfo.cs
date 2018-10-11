@@ -42,6 +42,10 @@ namespace CNGPI
             stream.WriteString(Name,64);
             stream.WriteString(Url, 200);
         }
+        public override string ToString()
+        {
+            return $"设置商品信息:格子{BoxNum},价格:{Price},成本:{Cost},名字:{Name},图片:{Url}";
+        }
     }
 
     public class Msg_SetPrdInfo_Back : Message, IBackMsg
@@ -62,6 +66,10 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteInt16(ErrCode);
             stream.WriteInt16(TransID);
+        }
+        public override string ToString()
+        {
+            return $"回应设置商品信息";
         }
     }    
 }

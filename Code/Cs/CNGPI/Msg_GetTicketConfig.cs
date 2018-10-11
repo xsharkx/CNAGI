@@ -7,6 +7,10 @@ namespace CNGPI
     public class Msg_GetTicketConfig_Event : Message
     {
         public override int PID => 0x0302;
+        public override string ToString()
+        {
+            return $"获取彩票机配置";
+        }
     }
 
     public class Msg_GetTicketConfig_Back : Message, IBackMsg
@@ -36,6 +40,11 @@ namespace CNGPI
             stream.WriteByte((byte)CoinsPerTimes);
             stream.WriteInt16(WinCoins);
             stream.WriteInt16(WinTicket);
+        }
+
+        public override string ToString()
+        {
+            return $"回应获取彩票机配置:每局币数:{CoinsPerTimes},概率:{WinTicket}票/{WinCoins}币";
         }
     }
 }

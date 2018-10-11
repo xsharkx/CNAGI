@@ -24,6 +24,10 @@ namespace CNGPI
             stream.WriteInt16(TransID);
             stream.WriteByte((byte)Action);
         }
+        public override string ToString()
+        {
+            return $"启停游戏机:启停:{Action}";
+        }
     }
 
     public class Msg_Pause_Back : Message, IBackMsg
@@ -40,6 +44,11 @@ namespace CNGPI
         {
             base.WriteData(stream);
             stream.WriteInt16(TransID);
+        }
+
+        public override string ToString()
+        {
+            return $"回应启停游戏机";
         }
     }
 }

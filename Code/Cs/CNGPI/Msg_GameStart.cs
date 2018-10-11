@@ -20,6 +20,11 @@ namespace CNGPI
             base.WriteData(stream);
             stream.WriteInt16(TransID);
         }
+
+        public override string ToString()
+        {
+            return $"游戏开始";
+        }
     }
 
     public class Msg_GameStart_Back : Message, IBackMsg
@@ -37,6 +42,10 @@ namespace CNGPI
         {
             base.WriteData(stream);
             stream.WriteInt16(TransID);
+        }
+        public override string ToString()
+        {
+            return $"回应游戏开始";
         }
     }
 }

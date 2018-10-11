@@ -27,6 +27,12 @@ namespace CNGPI
             stream.WriteInt16(WinCoins);
             stream.WriteInt16(WinTicket);
         }
+
+        public override string ToString()
+        {
+            return $"彩票机配置:每局币数:{CoinsPerTimes},概率:{WinTicket}票/{WinCoins}币";
+        }
+
     }
 
     public class Msg_TicketConfig_Back : Message, IBackMsg
@@ -44,6 +50,10 @@ namespace CNGPI
         {
             base.WriteData(stream);
             stream.WriteInt16(ErrCode);
+        }
+        public override string ToString()
+        {
+            return $"回应彩票机配置";
         }
     }
 }
