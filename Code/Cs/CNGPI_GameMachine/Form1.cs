@@ -38,7 +38,7 @@ namespace CNGPI_GameMachine
         private void DebugInfo(string msg)
         {
             this.BeginInvoke((EventHandler)delegate {
-                event_txt.AppendText(System.DateTime.Now.ToString("HH:mm:dd(fff)")+"\r\n"+msg + "\r\n\r\n\r\n");
+                event_txt.AppendText(System.DateTime.Now.ToString("HH:mm:ss(fff)")+"\r\n"+msg + "\r\n\r\n\r\n");
             });
             
         }
