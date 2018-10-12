@@ -45,6 +45,7 @@
             this.gift_finish2 = new System.Windows.Forms.Button();
             this.gift_finish = new System.Windows.Forms.Button();
             this.gift_start = new System.Windows.Forms.Button();
+            this.chk_showsync = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -96,6 +97,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chk_showsync);
             this.groupBox1.Controls.Add(this.base_bt_conn);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.base_comname);
@@ -218,6 +220,16 @@
             this.gift_start.UseVisualStyleBackColor = true;
             this.gift_start.Click += new System.EventHandler(this.gift_start_Click);
             // 
+            // chk_showsync
+            // 
+            this.chk_showsync.AutoSize = true;
+            this.chk_showsync.Location = new System.Drawing.Point(191, 55);
+            this.chk_showsync.Name = "chk_showsync";
+            this.chk_showsync.Size = new System.Drawing.Size(89, 19);
+            this.chk_showsync.TabIndex = 9;
+            this.chk_showsync.Text = "显示同步";
+            this.chk_showsync.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -265,6 +277,7 @@
         private System.Windows.Forms.Button gift_finish2;
         private System.Windows.Forms.Button gift_finish;
         private System.Windows.Forms.Button gift_alert;
+        private System.Windows.Forms.CheckBox chk_showsync;
     }
 }
 

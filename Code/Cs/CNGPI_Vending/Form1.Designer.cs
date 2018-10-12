@@ -46,11 +46,12 @@
             this.gift_finish = new System.Windows.Forms.Button();
             this.gift_start = new System.Windows.Forms.Button();
             this.grp_sell = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_boxnum = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.txt_boxnum = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.chk_showsync = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -103,6 +104,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chk_showsync);
             this.groupBox1.Controls.Add(this.base_bt_conn);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.base_comname);
@@ -240,6 +242,23 @@
             this.grp_sell.TabStop = false;
             this.grp_sell.Text = "售货机";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "柜号";
+            // 
+            // txt_boxnum
+            // 
+            this.txt_boxnum.Location = new System.Drawing.Point(81, 35);
+            this.txt_boxnum.Name = "txt_boxnum";
+            this.txt_boxnum.Size = new System.Drawing.Size(58, 25);
+            this.txt_boxnum.TabIndex = 10;
+            this.txt_boxnum.Text = "1";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(156, 72);
@@ -270,22 +289,15 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // txt_boxnum
+            // chk_showsync
             // 
-            this.txt_boxnum.Location = new System.Drawing.Point(81, 35);
-            this.txt_boxnum.Name = "txt_boxnum";
-            this.txt_boxnum.Size = new System.Drawing.Size(58, 25);
-            this.txt_boxnum.TabIndex = 10;
-            this.txt_boxnum.Text = "1";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 15);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "柜号";
+            this.chk_showsync.AutoSize = true;
+            this.chk_showsync.Location = new System.Drawing.Point(191, 55);
+            this.chk_showsync.Name = "chk_showsync";
+            this.chk_showsync.Size = new System.Drawing.Size(89, 19);
+            this.chk_showsync.TabIndex = 10;
+            this.chk_showsync.Text = "显示同步";
+            this.chk_showsync.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -343,6 +355,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox txt_boxnum;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox chk_showsync;
     }
 }
 

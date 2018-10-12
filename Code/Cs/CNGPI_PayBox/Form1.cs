@@ -71,21 +71,18 @@ namespace CNGPI_PayBox
             switch (msg.PID)
             {
                 case 0x010C:
-                    DebugInfo("收到报警");
                     return new Msg_GameAlert_Back()
                     {
                         TransID = (msg as CNGPI.ITransMsg).TransID,
                         ADR = PayBox.RemoteDev.CurrPortIndex
                     };
                 case 0x0105:
-                    DebugInfo("开始游戏");
                     return new Msg_GameStart_Back()
                     {
                         TransID = (msg as CNGPI.ITransMsg).TransID,
                         ADR = PayBox.RemoteDev.CurrPortIndex
                     };
                 case 0x0106:
-                    DebugInfo($"结束游戏:{msg}");
                     return new Msg_GameFinish_Back()
                     {
                         TransID = (msg as CNGPI.ITransMsg).TransID,
@@ -93,7 +90,6 @@ namespace CNGPI_PayBox
                         ErrCode=0
                     };
                 case 0x0401:
-                    DebugInfo($"下单支付");
                     return new Msg_CreateOrder_Back()
                     {
                         ADR = PayBox.RemoteDev.CurrPortIndex,
@@ -103,14 +99,12 @@ namespace CNGPI_PayBox
                         QrCode = "https://github.com/xsharkx/CNGPI/raw/master/logo/CNGPIV1.png"
                     };
                 case 0x0403:
-                    DebugInfo($"取消订单");
                     return new Msg_CancelOrder_Back()
                     {
                         ADR = PayBox.RemoteDev.CurrPortIndex,
                         ErrCode = 0,
                     };
                 case 0x0404:
-                    DebugInfo($"查询订单");
                     return new Msg_QueryOrder_Back()
                     {
                         ADR = PayBox.RemoteDev.CurrPortIndex,
@@ -130,6 +124,10 @@ namespace CNGPI_PayBox
 
         private void Box_OnIODebug(string msg, byte[] data)
         {
+            if (msg.IndexOf("状态同步") != -1 && !chk_showsync.Checked)
+            {
+                return;
+            }
             DebugInfo($"{msg}:\r\n{CNGPI.Utility.ByteToHex2(data)}");
         }
 
@@ -319,7 +317,7 @@ namespace CNGPI_PayBox
                 }, 2000);
                 if (back.ErrCode == 0)
                 {
-                    DebugInfo($"成功\r\n{back}");
+                    DebugInfo($"成功");
                 }
                 else
                 {

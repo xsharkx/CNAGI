@@ -45,6 +45,10 @@ namespace CNGPI_GameMachine
 
         private void Box_OnIODebug(string msg, byte[] data)
         {
+            if (msg.IndexOf("状态同步") != -1 && !chk_showsync.Checked)
+            {
+                return;
+            }
             DebugInfo($"{msg}:\r\n{CNGPI.Utility.ByteToHex2(data)}");
         }
 
