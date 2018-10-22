@@ -66,9 +66,9 @@ namespace CNGPI_GameMachine
                         GameMac = box;
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
-
+                    event_txt.AppendText(ex.ToString());
                 }
                 if (GameMac != null)
                 {

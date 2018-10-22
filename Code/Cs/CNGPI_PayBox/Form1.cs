@@ -58,9 +58,9 @@ namespace CNGPI_PayBox
                         break;
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-
+                    event_txt.AppendText(ex.ToString());
                 }
             }
             PayBoxConnect();
@@ -162,9 +162,9 @@ namespace CNGPI_PayBox
                         PayBox = box;
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-
+                    event_txt.AppendText(ex.ToString());
                 }
                 if (PayBox != null)
                 {
