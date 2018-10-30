@@ -33,6 +33,9 @@ namespace CNGPI_PayBox
             Devinfo.DeviceType = 0x0103;
             Devinfo.ID = CNGPI.Utility.ByteToHex(Guid.NewGuid().ToByteArray());
             sync_cb_state.SelectedIndex = 0;
+
+            //订单号生成方法
+            byte[] ordernum = Guid.NewGuid().ToByteArray();
         }
 
         CNGPI.CNGPIPayBox PayBox = null;
