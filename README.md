@@ -7,11 +7,11 @@ CNGPI(China Gaming devices Public Interface)
 
 PC版调试工具(V1.16) 
 
-[盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.16.zip)
+[支付盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.16.zip)
 
-[礼品机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameMachineV1.16.zip)
+[娃娃机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameMachineV1.16.zip)
 
-[游戏售货机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.16.zip)
+[口红机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.16.zip)
 
 ## 一 摘要
 本文档定义出游戏机与周边设备互动的通讯协议，包括如下用途：
@@ -292,7 +292,7 @@ EF37|0000|0301|001F|00000001 00000001 FA00FCCDA57D8990FA00FCCDA57D8990 0101|4849
 
 应答参数|长度|说明
 ---|---|---
-协议版本|4Byte|当前使用的本协议版本如：116，100=V1.0，101=V1.01.需要外接设备根据此数来适配不同版本的协议，当前版本说明一般注明在文档第四章
+协议版本|4Byte|当前使用的本协议版本如：114，100=V1.0，101=V1.01.需要外接设备根据此数来适配不同版本的协议，当前版本说明一般注明在文档第四章
 产品标识|4Byte|产品编号，第十二章名录，如0x00010001，用于标识某个厂商的某个产品
 设备唯一ID|16Byte|用于区分每一台设备，厂商需要保证唯一
 总P位数|1Byte|此游戏机总共P位数，售货机为售货格子数
