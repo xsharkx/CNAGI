@@ -211,31 +211,27 @@ namespace CNGPI_Vending
                         WinCoins=100,
                         WinGifts=9
                     };
-                case 0x0402:
+                case 0x0403:
                     return new CNGPI.Msg_PayOrder_Back()
                     {
                         ADR = 1,
                         ErrCode = 0,
                         TransID = (msg as CNGPI.ITransMsg).TransID
                     };
-                case 0x0405:
-                    return new CNGPI.Msg_SetPrdInfo_Back()
+                case 0x010E:
+                    return new CNGPI.Msg_MenuGet_Back()
                     {
                         ADR = 1,
                         ErrCode = 0,
-                        TransID = (msg as CNGPI.ITransMsg).TransID
+                        ItemID = (msg as Msg_MenuGet_Event).ItemID,
+                        ItemValue = 10,
+                        Display = 1
                     };
-                case 0x0406:
-                    return new CNGPI.Msg_CheckCount_Back()
+                case 0x010F:
+                    return new CNGPI.Msg_MenuSet_Back()
                     {
                         ADR = 1,
                         ErrCode = 0,
-                        TransID = (msg as CNGPI.ITransMsg).TransID
-                    };
-                case 0x0407:
-                    return new CNGPI.Msg_SetTime_Back()
-                    {
-                        ADR = 1,
                     };
                 default:
                     return null;
@@ -342,46 +338,46 @@ namespace CNGPI_Vending
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(LastOrdernum))
-            {
-                DebugInfo("没有上个单号");
-                return;
-            }
-            try
-            {
-                var back=GameMac.SendAndBackMsg<Msg_QueryOrder_Back>(new Msg_QueryOrder_Event()
-                {
-                    ADR = 1,
-                    OrderNum = LastOrdernum,
-                }, 15000);
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(LastOrdernum))
+        //    {
+        //        DebugInfo("没有上个单号");
+        //        return;
+        //    }
+        //    try
+        //    {
+        //        var back=GameMac.SendAndBackMsg<Msg_QueryOrder_Back>(new Msg_QueryOrder_Event()
+        //        {
+        //            ADR = 1,
+        //            OrderNum = LastOrdernum,
+        //        }, 15000);
 
-                if (back.ErrCode == 0)
-                {
-                    if (back.State == 0)
-                    {
-                        DebugInfo("状态:支付中");
-                    }
-                    if (back.State == 1)
-                    {
-                        DebugInfo("状态:成功");
-                    }
-                    if (back.State == 2)
-                    {
-                        DebugInfo("状态:失败");
-                    }
-                }
-                else
-                {
-                    DebugInfo("错误:"+ back.ErrCode.ToString("X2"));
-                }
-            }
-            catch (Exception ex)
-            {
-                DebugInfo(ex.Message);
-            }
-        }
+        //        if (back.ErrCode == 0)
+        //        {
+        //            if (back.State == 0)
+        //            {
+        //                DebugInfo("状态:支付中");
+        //            }
+        //            if (back.State == 1)
+        //            {
+        //                DebugInfo("状态:成功");
+        //            }
+        //            if (back.State == 2)
+        //            {
+        //                DebugInfo("状态:失败");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            DebugInfo("错误:"+ back.ErrCode.ToString("X2"));
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        DebugInfo(ex.Message);
+        //    }
+        //}
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -396,7 +392,30 @@ namespace CNGPI_Vending
                 {
                     ADR = 1,
                     OrderNum = LastOrdernum,
-                    Reseaon=1,
+                }, 15000);
+
+                if (back.ErrCode == 0)
+                {
+                    DebugInfo("成功");
+                }
+                else
+                {
+                    DebugInfo("错误:" + back.ErrCode.ToString("X2"));
+                }
+            }
+            catch (Exception ex)
+            {
+                DebugInfo(ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var back = GameMac.SendAndBackMsg<Msg_GetQrCode_Back>(new Msg_GetQrCode_Event()
+                {
+                    ADR = 1,
                 }, 15000);
 
                 if (back.ErrCode == 0)

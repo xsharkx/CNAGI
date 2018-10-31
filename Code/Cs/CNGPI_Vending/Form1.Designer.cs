@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chk_showsync = new System.Windows.Forms.CheckBox();
             this.base_bt_conn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.base_comname = new System.Windows.Forms.ComboBox();
@@ -49,9 +50,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_boxnum = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.chk_showsync = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -115,6 +115,16 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基础参数";
+            // 
+            // chk_showsync
+            // 
+            this.chk_showsync.AutoSize = true;
+            this.chk_showsync.Location = new System.Drawing.Point(191, 55);
+            this.chk_showsync.Name = "chk_showsync";
+            this.chk_showsync.Size = new System.Drawing.Size(89, 19);
+            this.chk_showsync.TabIndex = 10;
+            this.chk_showsync.Text = "显示同步";
+            this.chk_showsync.UseVisualStyleBackColor = true;
             // 
             // base_bt_conn
             // 
@@ -229,10 +239,10 @@
             // 
             // grp_sell
             // 
+            this.grp_sell.Controls.Add(this.button1);
             this.grp_sell.Controls.Add(this.label3);
             this.grp_sell.Controls.Add(this.txt_boxnum);
             this.grp_sell.Controls.Add(this.button2);
-            this.grp_sell.Controls.Add(this.button3);
             this.grp_sell.Controls.Add(this.button4);
             this.grp_sell.Enabled = false;
             this.grp_sell.Location = new System.Drawing.Point(17, 409);
@@ -265,19 +275,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 42);
             this.button2.TabIndex = 7;
-            this.button2.Text = "取消上个订单";
+            this.button2.Text = "取消购买";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(11, 72);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 42);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "查询上个订单";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -285,19 +285,19 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(128, 42);
             this.button4.TabIndex = 5;
-            this.button4.Text = "下单";
+            this.button4.Text = "发起购买";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // chk_showsync
+            // button1
             // 
-            this.chk_showsync.AutoSize = true;
-            this.chk_showsync.Location = new System.Drawing.Point(191, 55);
-            this.chk_showsync.Name = "chk_showsync";
-            this.chk_showsync.Size = new System.Drawing.Size(89, 19);
-            this.chk_showsync.TabIndex = 10;
-            this.chk_showsync.Text = "显示同步";
-            this.chk_showsync.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(22, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 42);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "获取正扫二维码";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -351,11 +351,11 @@
         private System.Windows.Forms.Button gift_alert;
         private System.Windows.Forms.GroupBox grp_sell;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox txt_boxnum;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chk_showsync;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -116,15 +116,22 @@ namespace CNGPI
             RegMsg(typeof(Msg_PayOrder_Back));
             RegMsg(typeof(Msg_CancelOrder_Event));
             RegMsg(typeof(Msg_CancelOrder_Back));
-            RegMsg(typeof(Msg_QueryOrder_Event));
-            RegMsg(typeof(Msg_QueryOrder_Back));
-            RegMsg(typeof(Msg_SetPrdInfo_Event));
-            RegMsg(typeof(Msg_SetPrdInfo_Back));
-            RegMsg(typeof(Msg_CheckCount_Event));
-            RegMsg(typeof(Msg_CheckCount_Back));
-            RegMsg(typeof(Msg_SetTime_Event));
-            RegMsg(typeof(Msg_SetTime_Back));
-            
+            RegMsg(typeof(Msg_GetQrCode_Event));
+            RegMsg(typeof(Msg_GetQrCode_Back));
+
+            RegMsg(typeof(Msg_MenuGet_Back));
+            RegMsg(typeof(Msg_MenuGet_Event));
+
+            RegMsg(typeof(Msg_MenuSet_Back));
+            RegMsg(typeof(Msg_MenuSet_Event));
+
+            //RegMsg(typeof(Msg_SetPrdInfo_Event));
+            //RegMsg(typeof(Msg_SetPrdInfo_Back));
+            //RegMsg(typeof(Msg_CheckCount_Event));
+            //RegMsg(typeof(Msg_CheckCount_Back));
+            //RegMsg(typeof(Msg_SetTime_Event));
+            //RegMsg(typeof(Msg_SetTime_Back));
+
         }
 
         public static Message ParseFromData(byte[] data,int datalength)

@@ -211,6 +211,21 @@ namespace CNGPI_GameMachine
                         WinCoins=100,
                         WinGifts=9
                     };
+                case 0x010E:
+                    return new CNGPI.Msg_MenuGet_Back()
+                    {
+                        ADR = 1,
+                        ErrCode = 0,
+                        ItemID = (msg as Msg_MenuGet_Event).ItemID,
+                        ItemValue=10,
+                        Display=1
+                    };
+                case 0x010F:
+                    return new CNGPI.Msg_MenuSet_Back()
+                    {
+                        ADR = 1,
+                        ErrCode = 0,
+                    };
                 default:
                     return null;
             }

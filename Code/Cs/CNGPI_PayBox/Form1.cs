@@ -93,26 +93,27 @@ namespace CNGPI_PayBox
                         ErrCode=0
                     };
                 case 0x0401:
+                    var msg41 = msg as Msg_CreateOrder_Event;
+                    ven_box.Text = msg41.BoxNum.ToString();
+                    ven_price.Text = msg41.Price.ToString();
                     return new Msg_CreateOrder_Back()
                     {
                         ADR = PayBox.RemoteDev.CurrPortIndex,
                         ErrCode = 0,
-                        OrderNum = (msg as CNGPI.Msg_CreateOrder_Event).OrderNum,
-                        State = 0,
                         QrCode = "https://github.com/xsharkx/CNGPI/raw/master/logo/CNGPIV1.png"
                     };
-                case 0x0403:
+                case 0x0402:
                     return new Msg_CancelOrder_Back()
                     {
                         ADR = PayBox.RemoteDev.CurrPortIndex,
                         ErrCode = 0,
                     };
-                case 0x0404:
-                    return new Msg_QueryOrder_Back()
+                case 0x0409:
+                    return new Msg_GetQrCode_Back()
                     {
                         ADR = PayBox.RemoteDev.CurrPortIndex,
                         ErrCode = 0,
-                        State=1,
+                        QrCode = "https://github.com/xsharkx/CNGPI/raw/master/logo/CNGPIV1.png"
                     };
             }
             return null;
@@ -241,13 +242,15 @@ namespace CNGPI_PayBox
         {
             try
             {
-                var back = PayBox.SendAndBackMsg<CNGPI.Msg_GetConfigEx_Back>(new CNGPI.Msg_GetConfigEx_Event()
+                var back = PayBox.SendAndBackMsg<CNGPI.Msg_MenuGet_Back>(new CNGPI.Msg_MenuGet_Event()
                 {
                     ADR = PayBox.RemoteDev.CurrPortIndex,
+                    ItemID=Int32.Parse(txt_menuitem.Text),
                 }, 2000);
                 if (back.ErrCode == 0)
                 {
                     DebugInfo("成功");
+                    txt_menuvalue.Text = back.ItemValue.ToString();
                 }
                 else
                 {
@@ -262,15 +265,13 @@ namespace CNGPI_PayBox
 
         private void all_bt_writeexconfig_Click(object sender, EventArgs e)
         {
-            OpenFileDialog of = new OpenFileDialog();
-            if (of.ShowDialog() != DialogResult.OK) return;
-            byte[] exd = System.IO.File.ReadAllBytes(of.FileName);
             try
             {
-                var back = PayBox.SendAndBackMsg<CNGPI.Msg_ConfigEx_Back>(new CNGPI.Msg_ConfigEx_Event()
+                var back = PayBox.SendAndBackMsg<CNGPI.Msg_MenuSet_Back>(new CNGPI.Msg_MenuSet_Event()
                 {
                     ADR = PayBox.RemoteDev.CurrPortIndex,
-                    ExData= exd
+                    ItemID = Int32.Parse(txt_menuitem.Text),
+                    ItemValue= (uint)Int32.Parse(txt_menuvalue.Text),
                 }, 2000);
                 if (back.ErrCode == 0)
                 {
@@ -536,7 +537,7 @@ namespace CNGPI_PayBox
                 if (back.ErrCode ==0)
                 {
                     sync_lab_state.Text = back.State.ToString("X2");
-                    DebugInfo($"成功");
+                    //DebugInfo($"成功");
                 }
                 else
                 {
@@ -557,11 +558,12 @@ namespace CNGPI_PayBox
                 {
                     ADR = PayBox.RemoteDev.CurrPortIndex,
                     OrderNum = Utility.ByteToHex(Guid.NewGuid().ToByteArray()),
-                    State=1
+                    BoxNum = Int32.Parse(ven_box.Text),
+                    Price=(uint) Int32.Parse(ven_price.Text),
                 }, 500, 10);
                 if (back.ErrCode == 0)
                 {
-                    DebugInfo($"成功");
+                    //DebugInfo($"成功");
                 }
                 else
                 {
@@ -574,109 +576,6 @@ namespace CNGPI_PayBox
             }           
         }
 
-        private void sell_bt_payerr_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var back = PayBox.SendNoRepeatAndBackMsg<CNGPI.Msg_PayOrder_Back>(new CNGPI.Msg_PayOrder_Event()
-                {
-                    ADR = PayBox.RemoteDev.CurrPortIndex,
-                    OrderNum = Utility.ByteToHex(Guid.NewGuid().ToByteArray()),
-                    State = 2
-                }, 500, 10);
-                if (back.ErrCode == 0)
-                {
-                    DebugInfo($"成功");
-                }
-                else
-                {
-                    DebugInfo($"错误{GetErrorCode(back.ErrCode)}");
-                }
-            }
-            catch (Exception ex)
-            {
-                DebugInfo(ex.Message);
-            }
-        }
-
-        private void sell_bt_setpro_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var back = PayBox.SendNoRepeatAndBackMsg<CNGPI.Msg_SetPrdInfo_Back>(new CNGPI.Msg_SetPrdInfo_Event()
-                {
-                    ADR = PayBox.RemoteDev.CurrPortIndex,
-                    BoxNum = 0,
-                    Name = "口红2",
-                    Price = 100,
-                    Cost=80,
-                    Url = "https://github.com/xsharkx/CNGPI/raw/master/logo/CNGPIV1.png",
-                }, 1000, 10);
-                if (back.ErrCode == 0)
-                {
-                    DebugInfo($"成功");
-                }
-                else
-                {
-                    DebugInfo($"错误{GetErrorCode(back.ErrCode)}");
-                }
-            }
-            catch (Exception ex)
-            {
-                DebugInfo(ex.Message);
-            }
-        }
-
-        private void sell_bt_checkpro_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var back = PayBox.SendNoRepeatAndBackMsg<CNGPI.Msg_CheckCount_Back>(new CNGPI.Msg_CheckCount_Event()
-                {
-                    ADR = PayBox.RemoteDev.CurrPortIndex,
-                    BoxNum = 0,
-                    Amount=1,
-                }, 1000, 10);
-                if (back.ErrCode == 0)
-                {
-                    DebugInfo($"成功");
-                }
-                else
-                {
-                    DebugInfo($"错误{GetErrorCode(back.ErrCode)}");
-                }
-            }
-            catch (Exception ex)
-            {
-                DebugInfo(ex.Message);
-            }
-        }
-
-        private void sell_paying_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var back = PayBox.SendNoRepeatAndBackMsg<CNGPI.Msg_PayOrder_Back>(new CNGPI.Msg_PayOrder_Event()
-                {
-                    ADR = PayBox.RemoteDev.CurrPortIndex,
-                    OrderNum = Utility.ByteToHex(Guid.NewGuid().ToByteArray()),
-                    State = 0
-                }, 500, 10);
-                if (back.ErrCode == 0)
-                {
-                    DebugInfo($"成功");
-                }
-                else
-                {
-                    DebugInfo($"错误{GetErrorCode(back.ErrCode)}");
-                }
-            }
-            catch (Exception ex)
-            {
-                DebugInfo(ex.Message);
-            }
-        }
-
         public long GetTimeLikeJS()
         {
             long lLeft = 621355968000000000;
@@ -685,20 +584,6 @@ namespace CNGPI_PayBox
             return Sticks;
         }
 
-        private void sell_settime_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var back = PayBox.SendAndBackMsg<CNGPI.Msg_SetTime_Back>(new CNGPI.Msg_SetTime_Event()
-                {
-                    ADR = PayBox.RemoteDev.CurrPortIndex,
-                    Time= GetTimeLikeJS()/1000
-                }, 2000);
-            }
-            catch (Exception ex)
-            {
-                DebugInfo(ex.Message);
-            }
-        }
+
     }
 }

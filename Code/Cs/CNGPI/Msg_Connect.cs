@@ -58,6 +58,8 @@ namespace CNGPI
 
         public int CurrGamePortIndex { get; set; }
 
+        public int SoftVer { get; set; }
+
         protected override void ReadData(MsgDataStream stream)
         {
             base.ReadData(stream);
@@ -67,6 +69,10 @@ namespace CNGPI
             GamePortCount = stream.ReadByte();
             CurrGamePortIndex = stream.ReadByte();
             DeviceType = stream.ReadInt16();
+            if (GPIVersion > 116)
+            {
+                SoftVer = stream.ReadInt16();
+            }
         }
 
         protected override void WriteData(MsgDataStream stream)
@@ -78,11 +84,15 @@ namespace CNGPI
              stream.WriteByte((byte)GamePortCount);
              stream.WriteByte((byte)CurrGamePortIndex);
              stream.WriteInt16(DeviceType);
+            if (GPIVersion > 116)
+            {
+                stream.WriteInt16(SoftVer);
+            }
         }
 
         public override string ToString()
         {
-            return $"回应握手:设备编号:{ProductNum.ToString("X2").PadLeft(8, '0')},设备ID:{Utility.ByteToHex(DeviceID)},设备类型:{DeviceType},P位数:{GamePortCount},当前P位:{CurrGamePortIndex}";
+            return $"回应握手:设备编号:{ProductNum.ToString("X2").PadLeft(8, '0')},设备ID:{Utility.ByteToHex(DeviceID)},设备类型:{DeviceType},P位数:{GamePortCount},当前P位:{CurrGamePortIndex},游戏版本:{SoftVer}";
         }
     }
 }

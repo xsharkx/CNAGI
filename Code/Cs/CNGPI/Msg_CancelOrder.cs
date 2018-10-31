@@ -6,29 +6,23 @@ namespace CNGPI
 {
     public class Msg_CancelOrder_Event : Message,ITransMsg
     {
-        public override int PID => 0x0403;
+        public override int PID => 0x0402;
 
         public int TransID { get; set; }
 
-        public string OrderNum { get; set; }
-
-        public int Reseaon { get; set; }
-
-        
+        public string OrderNum { get; set; }        
 
         protected override void ReadData(MsgDataStream stream)
         {
             base.ReadData(stream);
             TransID = stream.ReadInt16();
             OrderNum = stream.ReadHex(16);
-            Reseaon = stream.ReadByte();
         }
         protected override void WriteData(MsgDataStream stream)
         {
             base.WriteData(stream);
            stream.WriteInt16(TransID);
             stream.WriteHex(OrderNum);
-            stream.WriteByte((byte)Reseaon);
         }
 
         public override string ToString()
@@ -39,7 +33,7 @@ namespace CNGPI
 
     public class Msg_CancelOrder_Back : Message, IBackMsg
     {
-        public override int PID => 0x0483;
+        public override int PID => 0x0482;
 
         public int ErrCode { get; set; }
         public int TransID { get; set; }

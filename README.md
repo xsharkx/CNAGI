@@ -5,12 +5,13 @@ CNGPI(China Gaming devices Public Interface)
 
 此logo用于标记自己产品已支持此协议， [矢量图下载](https://github.com/xsharkx/CNGPI/raw/master/logo/CNGPIV1.ai)
 
-PC版调试工具 
-[盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.09.zip)
+PC版调试工具(V1.16) 
 
-[礼品机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameMachineV1.09.zip)
+[盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.16.zip)
 
-[游戏售货机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.09.zip)
+[礼品机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameMachineV1.16.zip)
+
+[游戏售货机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.16.zip)
 
 ## 一 摘要
 本文档定义出游戏机与周边设备互动的通讯协议，包括如下用途：
@@ -117,6 +118,7 @@ V1.0|20180909|Benny|加入彩票机支持
 V1.09|20180929|Benny|加入游戏售货机支持（口红机）
 V1.12|20181022|Benny|调整售货机接口，加入各种机器运行流程图
 V1.14|20181023|Benny|添加菜单设置接口，废弃扩展参数设置
+V1.16|20181031|Benny|添加菜单设置接口，修改握手接口
 
 <A NAME="P5"></A>
 
@@ -236,7 +238,7 @@ hub工作方式待讨论补充
 校验|CHK|2字节|第一字节等于之前所有字节相加自动溢出既sum(START,...,DATA),第二字节等于之前所有字节异或既Xor(START,...,DATA)
 包尾|END|2字节|固定为0XFE73
 
-两个数据帧之间间隔至少6ms
+两个数据帧之间间隔至少6ms,指令未说明超时时间时默认已500ms作为超时时间
 
 举例握手协议命令如下(Hex)：
 
@@ -290,12 +292,13 @@ EF37|0000|0301|001F|00000001 00000001 FA00FCCDA57D8990FA00FCCDA57D8990 0101|4849
 
 应答参数|长度|说明
 ---|---|---
-协议版本|4Byte|当前使用的本协议版本如：114，100=V1.0，101=V1.01.需要外接设备根据此数来适配不同版本的协议，当前版本说明一般注明在文档第四章
+协议版本|4Byte|当前使用的本协议版本如：116，100=V1.0，101=V1.01.需要外接设备根据此数来适配不同版本的协议，当前版本说明一般注明在文档第四章
 产品标识|4Byte|产品编号，第十二章名录，如0x00010001，用于标识某个厂商的某个产品
 设备唯一ID|16Byte|用于区分每一台设备，厂商需要保证唯一
 总P位数|1Byte|此游戏机总共P位数，售货机为售货格子数
 当前P位|1Byte|此物理接口控制的P位序号，0=此接口控制所有P位，1=只控制1P，2=2P，3=3P...
 设备类型|2Byte|0x0001=纯玩机,0x0002=彩票机,0x0003=娃娃机,0x0004=扭蛋机，0x0005=口红机
+游戏机软件版本|2Byte|游戏机软件版本,用于查看版本,菜单设置时的版本控制,协议版本大于等于116时才生效
 
 举例：待完善
 
@@ -601,7 +604,7 @@ EF37|0000|0301|001F|00000001 00000001 FA00FCCDA57D8990FA00FCCDA57D8990 0101|4849
 
 数据方向:外接设备->游戏机
 
-说明：用于外接设备读取非通用参数的设置，用于手机远程设置参数
+说明：用于外接设备读取非通用参数的设置，用于手机远程设置参数,菜单编号由游戏机厂家在手机系统后台添加,当需要设置时,会读取所有设置到手机,手机设置完后一次设置到游戏机.
 
 游戏机发送内容（DATA）如下:
 
@@ -953,6 +956,9 @@ EF37|0000|0301|001F|00000001 00000001 FA00FCCDA57D8990FA00FCCDA57D8990 0101|4849
 0x0206|启动游戏超时
 0x0207|启动抓物超时
 0x0208|天车归位超时
+0x0209|电子锁开启异常
+0x020A|出货异常
+
 
 外接设备故障码
 

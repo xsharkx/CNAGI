@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chk_showsync = new System.Windows.Forms.CheckBox();
             this.base_bt_conn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.base_bt_fresh = new System.Windows.Forms.Button();
@@ -93,15 +94,17 @@
             this.all_bt_stop = new System.Windows.Forms.Button();
             this.all_bt_restart = new System.Windows.Forms.Button();
             this.grp_nomal = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.all_bt_real = new System.Windows.Forms.Button();
+            this.txt_menuvalue = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_menuitem = new System.Windows.Forms.TextBox();
             this.grp_sell = new System.Windows.Forms.GroupBox();
-            this.sell_settime = new System.Windows.Forms.Button();
-            this.sell_paying = new System.Windows.Forms.Button();
-            this.sell_bt_checkpro = new System.Windows.Forms.Button();
-            this.sell_bt_setpro = new System.Windows.Forms.Button();
-            this.sell_bt_payerr = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ven_box = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ven_price = new System.Windows.Forms.TextBox();
             this.sell_bt_payok = new System.Windows.Forms.Button();
-            this.chk_showsync = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -175,6 +178,16 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基础参数";
+            // 
+            // chk_showsync
+            // 
+            this.chk_showsync.AutoSize = true;
+            this.chk_showsync.Location = new System.Drawing.Point(185, 55);
+            this.chk_showsync.Name = "chk_showsync";
+            this.chk_showsync.Size = new System.Drawing.Size(89, 19);
+            this.chk_showsync.TabIndex = 11;
+            this.chk_showsync.Text = "显示同步";
+            this.chk_showsync.UseVisualStyleBackColor = true;
             // 
             // base_bt_conn
             // 
@@ -297,7 +310,7 @@
             this.groupBox3.Controls.Add(this.event_txt);
             this.groupBox3.Location = new System.Drawing.Point(595, 85);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(428, 572);
+            this.groupBox3.Size = new System.Drawing.Size(428, 614);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "事件";
@@ -309,7 +322,7 @@
             this.event_txt.Multiline = true;
             this.event_txt.Name = "event_txt";
             this.event_txt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.event_txt.Size = new System.Drawing.Size(422, 548);
+            this.event_txt.Size = new System.Drawing.Size(422, 590);
             this.event_txt.TabIndex = 0;
             // 
             // label12
@@ -618,6 +631,7 @@
             this.ticket_tb_paycoin.Name = "ticket_tb_paycoin";
             this.ticket_tb_paycoin.Size = new System.Drawing.Size(41, 25);
             this.ticket_tb_paycoin.TabIndex = 25;
+            this.ticket_tb_paycoin.Text = "3";
             // 
             // label25
             // 
@@ -635,6 +649,7 @@
             this.ticket_tb_out.Name = "ticket_tb_out";
             this.ticket_tb_out.Size = new System.Drawing.Size(41, 25);
             this.ticket_tb_out.TabIndex = 27;
+            this.ticket_tb_out.Text = "3";
             // 
             // label24
             // 
@@ -731,27 +746,27 @@
             // 
             // all_bt_readexconfig
             // 
-            this.all_bt_readexconfig.Location = new System.Drawing.Point(6, 97);
+            this.all_bt_readexconfig.Location = new System.Drawing.Point(6, 137);
             this.all_bt_readexconfig.Name = "all_bt_readexconfig";
             this.all_bt_readexconfig.Size = new System.Drawing.Size(130, 37);
             this.all_bt_readexconfig.TabIndex = 4;
-            this.all_bt_readexconfig.Text = "读扩展配置";
+            this.all_bt_readexconfig.Text = "读菜单";
             this.all_bt_readexconfig.UseVisualStyleBackColor = true;
             this.all_bt_readexconfig.Click += new System.EventHandler(this.all_bt_readexconfig_Click);
             // 
             // all_bt_writeexconfig
             // 
-            this.all_bt_writeexconfig.Location = new System.Drawing.Point(144, 97);
+            this.all_bt_writeexconfig.Location = new System.Drawing.Point(144, 137);
             this.all_bt_writeexconfig.Name = "all_bt_writeexconfig";
             this.all_bt_writeexconfig.Size = new System.Drawing.Size(130, 37);
             this.all_bt_writeexconfig.TabIndex = 5;
-            this.all_bt_writeexconfig.Text = "写扩展配置";
+            this.all_bt_writeexconfig.Text = "写菜单";
             this.all_bt_writeexconfig.UseVisualStyleBackColor = true;
             this.all_bt_writeexconfig.Click += new System.EventHandler(this.all_bt_writeexconfig_Click);
             // 
             // all_bt_pay
             // 
-            this.all_bt_pay.Location = new System.Drawing.Point(6, 226);
+            this.all_bt_pay.Location = new System.Drawing.Point(6, 267);
             this.all_bt_pay.Name = "all_bt_pay";
             this.all_bt_pay.Size = new System.Drawing.Size(130, 37);
             this.all_bt_pay.TabIndex = 6;
@@ -761,7 +776,7 @@
             // 
             // all_bt_reset
             // 
-            this.all_bt_reset.Location = new System.Drawing.Point(6, 140);
+            this.all_bt_reset.Location = new System.Drawing.Point(6, 181);
             this.all_bt_reset.Name = "all_bt_reset";
             this.all_bt_reset.Size = new System.Drawing.Size(130, 37);
             this.all_bt_reset.TabIndex = 7;
@@ -771,7 +786,7 @@
             // 
             // all_bt_getcount
             // 
-            this.all_bt_getcount.Location = new System.Drawing.Point(144, 140);
+            this.all_bt_getcount.Location = new System.Drawing.Point(144, 181);
             this.all_bt_getcount.Name = "all_bt_getcount";
             this.all_bt_getcount.Size = new System.Drawing.Size(130, 37);
             this.all_bt_getcount.TabIndex = 8;
@@ -781,7 +796,7 @@
             // 
             // all_bt_stop
             // 
-            this.all_bt_stop.Location = new System.Drawing.Point(6, 183);
+            this.all_bt_stop.Location = new System.Drawing.Point(6, 224);
             this.all_bt_stop.Name = "all_bt_stop";
             this.all_bt_stop.Size = new System.Drawing.Size(130, 37);
             this.all_bt_stop.TabIndex = 9;
@@ -791,7 +806,7 @@
             // 
             // all_bt_restart
             // 
-            this.all_bt_restart.Location = new System.Drawing.Point(144, 183);
+            this.all_bt_restart.Location = new System.Drawing.Point(144, 224);
             this.all_bt_restart.Name = "all_bt_restart";
             this.all_bt_restart.Size = new System.Drawing.Size(130, 37);
             this.all_bt_restart.TabIndex = 10;
@@ -801,9 +816,13 @@
             // 
             // grp_nomal
             // 
+            this.grp_nomal.Controls.Add(this.label6);
             this.grp_nomal.Controls.Add(this.all_bt_real);
+            this.grp_nomal.Controls.Add(this.txt_menuvalue);
             this.grp_nomal.Controls.Add(this.all_bt_restart);
+            this.grp_nomal.Controls.Add(this.label7);
             this.grp_nomal.Controls.Add(this.all_bt_stop);
+            this.grp_nomal.Controls.Add(this.txt_menuitem);
             this.grp_nomal.Controls.Add(this.all_bt_getcount);
             this.grp_nomal.Controls.Add(this.all_bt_reset);
             this.grp_nomal.Controls.Add(this.all_bt_pay);
@@ -816,14 +835,23 @@
             this.grp_nomal.Enabled = false;
             this.grp_nomal.Location = new System.Drawing.Point(10, 386);
             this.grp_nomal.Name = "grp_nomal";
-            this.grp_nomal.Size = new System.Drawing.Size(282, 271);
+            this.grp_nomal.Size = new System.Drawing.Size(282, 313);
             this.grp_nomal.TabIndex = 7;
             this.grp_nomal.TabStop = false;
             this.grp_nomal.Text = "通用";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(145, 109);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(22, 15);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "值";
+            // 
             // all_bt_real
             // 
-            this.all_bt_real.Location = new System.Drawing.Point(144, 226);
+            this.all_bt_real.Location = new System.Drawing.Point(144, 267);
             this.all_bt_real.Name = "all_bt_real";
             this.all_bt_real.Size = new System.Drawing.Size(130, 37);
             this.all_bt_real.TabIndex = 11;
@@ -831,71 +859,83 @@
             this.all_bt_real.UseVisualStyleBackColor = true;
             this.all_bt_real.Click += new System.EventHandler(this.all_bt_real_Click);
             // 
+            // txt_menuvalue
+            // 
+            this.txt_menuvalue.Location = new System.Drawing.Point(170, 104);
+            this.txt_menuvalue.MaxLength = 3;
+            this.txt_menuvalue.Name = "txt_menuvalue";
+            this.txt_menuvalue.Size = new System.Drawing.Size(104, 25);
+            this.txt_menuvalue.TabIndex = 36;
+            this.txt_menuvalue.Text = "1";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 109);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 15);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "菜单项";
+            // 
+            // txt_menuitem
+            // 
+            this.txt_menuitem.Location = new System.Drawing.Point(68, 104);
+            this.txt_menuitem.MaxLength = 3;
+            this.txt_menuitem.Name = "txt_menuitem";
+            this.txt_menuitem.Size = new System.Drawing.Size(68, 25);
+            this.txt_menuitem.TabIndex = 34;
+            this.txt_menuitem.Text = "1";
+            // 
             // grp_sell
             // 
-            this.grp_sell.Controls.Add(this.sell_settime);
-            this.grp_sell.Controls.Add(this.sell_paying);
-            this.grp_sell.Controls.Add(this.sell_bt_checkpro);
-            this.grp_sell.Controls.Add(this.sell_bt_setpro);
-            this.grp_sell.Controls.Add(this.sell_bt_payerr);
+            this.grp_sell.Controls.Add(this.label5);
+            this.grp_sell.Controls.Add(this.ven_box);
+            this.grp_sell.Controls.Add(this.label3);
+            this.grp_sell.Controls.Add(this.ven_price);
             this.grp_sell.Controls.Add(this.sell_bt_payok);
             this.grp_sell.Enabled = false;
             this.grp_sell.Location = new System.Drawing.Point(298, 521);
             this.grp_sell.Name = "grp_sell";
-            this.grp_sell.Size = new System.Drawing.Size(294, 136);
+            this.grp_sell.Size = new System.Drawing.Size(294, 178);
             this.grp_sell.TabIndex = 10;
             this.grp_sell.TabStop = false;
             this.grp_sell.Text = "售货机";
             // 
-            // sell_settime
+            // label5
             // 
-            this.sell_settime.Location = new System.Drawing.Point(194, 66);
-            this.sell_settime.Name = "sell_settime";
-            this.sell_settime.Size = new System.Drawing.Size(84, 37);
-            this.sell_settime.TabIndex = 34;
-            this.sell_settime.Text = "设置时间";
-            this.sell_settime.UseVisualStyleBackColor = true;
-            this.sell_settime.Click += new System.EventHandler(this.sell_settime_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(197, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 15);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "格子";
             // 
-            // sell_paying
+            // ven_box
             // 
-            this.sell_paying.Location = new System.Drawing.Point(105, 24);
-            this.sell_paying.Name = "sell_paying";
-            this.sell_paying.Size = new System.Drawing.Size(84, 37);
-            this.sell_paying.TabIndex = 33;
-            this.sell_paying.Text = "支付中";
-            this.sell_paying.UseVisualStyleBackColor = true;
-            this.sell_paying.Click += new System.EventHandler(this.sell_paying_Click);
+            this.ven_box.Location = new System.Drawing.Point(240, 32);
+            this.ven_box.MaxLength = 3;
+            this.ven_box.Name = "ven_box";
+            this.ven_box.Size = new System.Drawing.Size(41, 25);
+            this.ven_box.TabIndex = 32;
+            this.ven_box.Text = "1";
             // 
-            // sell_bt_checkpro
+            // label3
             // 
-            this.sell_bt_checkpro.Location = new System.Drawing.Point(105, 66);
-            this.sell_bt_checkpro.Name = "sell_bt_checkpro";
-            this.sell_bt_checkpro.Size = new System.Drawing.Size(84, 37);
-            this.sell_bt_checkpro.TabIndex = 32;
-            this.sell_bt_checkpro.Text = "盘点商品";
-            this.sell_bt_checkpro.UseVisualStyleBackColor = true;
-            this.sell_bt_checkpro.Click += new System.EventHandler(this.sell_bt_checkpro_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(111, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "金额";
             // 
-            // sell_bt_setpro
+            // ven_price
             // 
-            this.sell_bt_setpro.Location = new System.Drawing.Point(9, 66);
-            this.sell_bt_setpro.Name = "sell_bt_setpro";
-            this.sell_bt_setpro.Size = new System.Drawing.Size(92, 37);
-            this.sell_bt_setpro.TabIndex = 31;
-            this.sell_bt_setpro.Text = "设置商品";
-            this.sell_bt_setpro.UseVisualStyleBackColor = true;
-            this.sell_bt_setpro.Click += new System.EventHandler(this.sell_bt_setpro_Click);
-            // 
-            // sell_bt_payerr
-            // 
-            this.sell_bt_payerr.Location = new System.Drawing.Point(194, 24);
-            this.sell_bt_payerr.Name = "sell_bt_payerr";
-            this.sell_bt_payerr.Size = new System.Drawing.Size(84, 37);
-            this.sell_bt_payerr.TabIndex = 30;
-            this.sell_bt_payerr.Text = "支付失败";
-            this.sell_bt_payerr.UseVisualStyleBackColor = true;
-            this.sell_bt_payerr.Click += new System.EventHandler(this.sell_bt_payerr_Click);
+            this.ven_price.Location = new System.Drawing.Point(150, 32);
+            this.ven_price.MaxLength = 3;
+            this.ven_price.Name = "ven_price";
+            this.ven_price.Size = new System.Drawing.Size(41, 25);
+            this.ven_price.TabIndex = 30;
+            this.ven_price.Text = "100";
             // 
             // sell_bt_payok
             // 
@@ -903,25 +943,15 @@
             this.sell_bt_payok.Name = "sell_bt_payok";
             this.sell_bt_payok.Size = new System.Drawing.Size(91, 37);
             this.sell_bt_payok.TabIndex = 29;
-            this.sell_bt_payok.Text = "支付完成";
+            this.sell_bt_payok.Text = "购买支付";
             this.sell_bt_payok.UseVisualStyleBackColor = true;
             this.sell_bt_payok.Click += new System.EventHandler(this.sell_bt_payok_Click);
-            // 
-            // chk_showsync
-            // 
-            this.chk_showsync.AutoSize = true;
-            this.chk_showsync.Location = new System.Drawing.Point(185, 55);
-            this.chk_showsync.Name = "chk_showsync";
-            this.chk_showsync.Size = new System.Drawing.Size(89, 19);
-            this.chk_showsync.TabIndex = 11;
-            this.chk_showsync.Text = "显示同步";
-            this.chk_showsync.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 663);
+            this.ClientSize = new System.Drawing.Size(1032, 703);
             this.Controls.Add(this.grp_sell);
             this.Controls.Add(this.grp_tigket);
             this.Controls.Add(this.grp_gift);
@@ -960,6 +990,7 @@
             this.grp_nomal.ResumeLayout(false);
             this.grp_nomal.PerformLayout();
             this.grp_sell.ResumeLayout(false);
+            this.grp_sell.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1032,13 +1063,16 @@
         private System.Windows.Forms.Button all_bt_real;
         private System.Windows.Forms.Button sync_bt_sync;
         private System.Windows.Forms.GroupBox grp_sell;
-        private System.Windows.Forms.Button sell_bt_payerr;
         private System.Windows.Forms.Button sell_bt_payok;
-        private System.Windows.Forms.Button sell_bt_checkpro;
-        private System.Windows.Forms.Button sell_bt_setpro;
-        private System.Windows.Forms.Button sell_paying;
-        private System.Windows.Forms.Button sell_settime;
         private System.Windows.Forms.CheckBox chk_showsync;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox ven_box;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox ven_price;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_menuvalue;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_menuitem;
     }
 }
 
