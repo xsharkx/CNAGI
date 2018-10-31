@@ -145,6 +145,10 @@ namespace CNGPI
                     {
                         System.Threading.Thread.Sleep(6);//如果连续发送需要间隔6毫秒
                     }
+                    if(msg is ITransMsg)
+                    {
+                        (msg as ITransMsg).TransID = LastReciveTransID;
+                    }
                     byte[] data = msg.GetMsgData();
                     OnIODebug?.Invoke(msg.ToString(), data);
                     backMsg = null;
@@ -243,6 +247,8 @@ namespace CNGPI
                 serialPort.Open();
                 serialPort.DataReceived += SerialPort_DataReceived;
                 connected = true;
+                LastReciveTransID = 0;
+                LastSendTransID = 0;
             }
             catch (Exception ex)
             {
@@ -329,8 +335,11 @@ namespace CNGPI
             int waittimes = 0;
             while (bttoread < DataLen + 4) //没接收完成
             {
+                if (serialPort == null) break;
+                if (!serialPort.IsOpen) break;
                 if (serialPort.BytesToRead > bttoread)
                 {
+                    bttoread = serialPort.BytesToRead;
                     waittimes = 0;//一直有数据收到就继续等
                 }
                 System.Threading.Thread.Sleep(1);
@@ -389,21 +398,28 @@ namespace CNGPI
 
         private void SerialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            var recivemsg = ReadMsgFromPort();
-            while (recivemsg != null)
+            try
             {
-                if (recivemsg is IBackMsg)
+                var recivemsg = ReadMsgFromPort();
+                while (recivemsg != null)
                 {
-                    //接收到其他信息就当作时回复
-                    backMsg = recivemsg;
-                    resetEvent.Set();
+                    if (recivemsg is IBackMsg)
+                    {
+                        //接收到其他信息就当作时回复
+                        backMsg = recivemsg;
+                        resetEvent.Set();
+                    }
+                    else
+                    {
+                        //接收到事件消息冒泡出去
+                        ReciveEvent(recivemsg);
+                    }
+                    recivemsg = ReadMsgFromPort();
                 }
-                else
-                {
-                    //接收到事件消息冒泡出去
-                    ReciveEvent(recivemsg);
-                }
-                recivemsg = ReadMsgFromPort();
+            }
+            catch(Exception ex)
+            {
+                OnIODebug?.Invoke(ex.ToString(), null);
             }
             //int Existlen = serialPort.BytesToRead;
             //if (Existlen >=8)
