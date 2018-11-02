@@ -584,6 +584,9 @@ namespace CNGPI_PayBox
             return Sticks;
         }
 
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            event_txt.Clear();
+        }
     }
 }

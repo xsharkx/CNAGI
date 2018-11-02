@@ -30,6 +30,8 @@ namespace CNGPI_Vending
             Devinfo = new CNGPI.DeviceInfo(0x00030001);
             Devinfo.DeviceType = 0x0005;
             Devinfo.ID = CNGPI.Utility.ByteToHex(Guid.NewGuid().ToByteArray());
+            Devinfo.SoftVer = 100;
+            Devinfo.CNGPIVer = 116;
         }
 
         CNGPI.CNGPIGameMachine GameMac = null;
@@ -102,7 +104,8 @@ namespace CNGPI_Vending
                         DeviceType=Devinfo.DeviceType,
                         GamePortCount=1,
                         GPIVersion=100,
-                        ProductNum=Devinfo.ProductNum
+                        ProductNum=Devinfo.ProductNum,
+                        SoftVer=Devinfo.SoftVer
                     };
                 case 0x0102:
                     return new CNGPI.Msg_Sync_Back()
@@ -431,6 +434,12 @@ namespace CNGPI_Vending
             {
                 DebugInfo(ex.Message);
             }
+        }
+
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            event_txt.Clear();
         }
     }
 }

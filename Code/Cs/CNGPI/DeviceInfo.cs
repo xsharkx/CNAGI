@@ -40,6 +40,16 @@ namespace CNGPI
         }
 
         /// <summary>
+        /// 软件版本
+        /// </summary>
+        public int SoftVer { get; set; }
+
+        /// <summary>
+        /// 接口版本
+        /// </summary>
+        public int CNGPIVer { get; set; }
+
+        /// <summary>
         /// 厂商名
         /// </summary>
         public string Manufacturers { get; set; }

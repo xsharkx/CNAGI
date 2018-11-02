@@ -105,6 +105,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ven_price = new System.Windows.Forms.TextBox();
             this.sell_bt_payok = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -307,6 +308,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.event_txt);
             this.groupBox3.Location = new System.Drawing.Point(595, 85);
             this.groupBox3.Name = "groupBox3";
@@ -947,6 +949,16 @@
             this.sell_bt_payok.UseVisualStyleBackColor = true;
             this.sell_bt_payok.Click += new System.EventHandler(this.sell_bt_payok_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(299, -1);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(128, 22);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "清空";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1073,6 +1085,7 @@
         private System.Windows.Forms.TextBox txt_menuvalue;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_menuitem;
+        private System.Windows.Forms.Button button3;
     }
 }
 
