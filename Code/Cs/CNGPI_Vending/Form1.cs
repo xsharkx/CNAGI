@@ -332,7 +332,8 @@ namespace CNGPI_Vending
                     ADR = 1,
                     BoxNum=Int32.Parse(txt_boxnum.Text),
                     OrderNum= LastOrdernum,
-                    Price=100
+                    Price=100,
+                    TimeOut=30,
                 }, 5000);
             }
             catch (Exception ex)
