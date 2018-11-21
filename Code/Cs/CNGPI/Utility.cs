@@ -46,6 +46,15 @@ namespace CNGPI
             return datawtname;
         }
 
+        public static byte[] StrToByteUniCode(string data, int length)
+        {
+            byte[] dataname = System.Text.Encoding.Unicode.GetBytes(data);
+            if (dataname.Length > length) throw new Exception("内容太长");
+            byte[] datawtname = new byte[length];
+            Array.Copy(dataname, datawtname, dataname.Length);
+            return datawtname;
+        }
+
         public static string ByteToStr(byte[] data)
         {
             return System.Text.Encoding.UTF8.GetString(data).Replace("\0", "");

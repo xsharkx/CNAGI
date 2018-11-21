@@ -119,8 +119,11 @@ namespace CNGPI
             RegMsg(typeof(Msg_GetQrCode_Event));
             RegMsg(typeof(Msg_GetQrCode_Back));
 
-            RegMsg(typeof(Msg_MenuGet_Back));
-            RegMsg(typeof(Msg_MenuGet_Event));
+            RegMsg(typeof(Msg_GetMenuIndex_Back));
+            RegMsg(typeof(Msg_GetMenuIndex_Event));
+
+            RegMsg(typeof(Msg_GetMenuDetail_Back));
+            RegMsg(typeof(Msg_GetMenuDetail_Event));
 
             RegMsg(typeof(Msg_MenuSet_Back));
             RegMsg(typeof(Msg_MenuSet_Event));

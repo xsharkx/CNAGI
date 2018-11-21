@@ -47,6 +47,7 @@
             this.sync_cb_state = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.event_txt = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.grp_gift = new System.Windows.Forms.GroupBox();
@@ -84,28 +85,20 @@
             this.grp_tigket = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.all_num_coin = new System.Windows.Forms.NumericUpDown();
-            this.all_bt_readconfig = new System.Windows.Forms.Button();
-            this.all_bt_writeconfig = new System.Windows.Forms.Button();
             this.all_bt_readexconfig = new System.Windows.Forms.Button();
-            this.all_bt_writeexconfig = new System.Windows.Forms.Button();
             this.all_bt_pay = new System.Windows.Forms.Button();
             this.all_bt_reset = new System.Windows.Forms.Button();
             this.all_bt_getcount = new System.Windows.Forms.Button();
             this.all_bt_stop = new System.Windows.Forms.Button();
             this.all_bt_restart = new System.Windows.Forms.Button();
             this.grp_nomal = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.all_bt_real = new System.Windows.Forms.Button();
-            this.txt_menuvalue = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt_menuitem = new System.Windows.Forms.TextBox();
             this.grp_sell = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ven_box = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ven_price = new System.Windows.Forms.TextBox();
             this.sell_bt_payok = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -312,10 +305,20 @@
             this.groupBox3.Controls.Add(this.event_txt);
             this.groupBox3.Location = new System.Drawing.Point(595, 85);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(428, 614);
+            this.groupBox3.Size = new System.Drawing.Size(428, 526);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "事件";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(299, -1);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(128, 22);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "清空";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // event_txt
             // 
@@ -324,7 +327,7 @@
             this.event_txt.Multiline = true;
             this.event_txt.Name = "event_txt";
             this.event_txt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.event_txt.Size = new System.Drawing.Size(422, 590);
+            this.event_txt.Size = new System.Drawing.Size(422, 502);
             this.event_txt.TabIndex = 0;
             // 
             // label12
@@ -711,7 +714,7 @@
             // 
             // all_num_coin
             // 
-            this.all_num_coin.Location = new System.Drawing.Point(96, 22);
+            this.all_num_coin.Location = new System.Drawing.Point(96, 20);
             this.all_num_coin.Maximum = new decimal(new int[] {
             255,
             0,
@@ -726,49 +729,19 @@
             0,
             0});
             // 
-            // all_bt_readconfig
-            // 
-            this.all_bt_readconfig.Location = new System.Drawing.Point(6, 54);
-            this.all_bt_readconfig.Name = "all_bt_readconfig";
-            this.all_bt_readconfig.Size = new System.Drawing.Size(130, 37);
-            this.all_bt_readconfig.TabIndex = 2;
-            this.all_bt_readconfig.Text = "读配置";
-            this.all_bt_readconfig.UseVisualStyleBackColor = true;
-            this.all_bt_readconfig.Click += new System.EventHandler(this.all_bt_readconfig_Click);
-            // 
-            // all_bt_writeconfig
-            // 
-            this.all_bt_writeconfig.Location = new System.Drawing.Point(144, 54);
-            this.all_bt_writeconfig.Name = "all_bt_writeconfig";
-            this.all_bt_writeconfig.Size = new System.Drawing.Size(130, 37);
-            this.all_bt_writeconfig.TabIndex = 3;
-            this.all_bt_writeconfig.Text = "写配置";
-            this.all_bt_writeconfig.UseVisualStyleBackColor = true;
-            this.all_bt_writeconfig.Click += new System.EventHandler(this.all_bt_writeconfig_Click);
-            // 
             // all_bt_readexconfig
             // 
-            this.all_bt_readexconfig.Location = new System.Drawing.Point(6, 137);
+            this.all_bt_readexconfig.Location = new System.Drawing.Point(8, 52);
             this.all_bt_readexconfig.Name = "all_bt_readexconfig";
-            this.all_bt_readexconfig.Size = new System.Drawing.Size(130, 37);
+            this.all_bt_readexconfig.Size = new System.Drawing.Size(268, 37);
             this.all_bt_readexconfig.TabIndex = 4;
-            this.all_bt_readexconfig.Text = "读菜单";
+            this.all_bt_readexconfig.Text = "菜单操作";
             this.all_bt_readexconfig.UseVisualStyleBackColor = true;
             this.all_bt_readexconfig.Click += new System.EventHandler(this.all_bt_readexconfig_Click);
             // 
-            // all_bt_writeexconfig
-            // 
-            this.all_bt_writeexconfig.Location = new System.Drawing.Point(144, 137);
-            this.all_bt_writeexconfig.Name = "all_bt_writeexconfig";
-            this.all_bt_writeexconfig.Size = new System.Drawing.Size(130, 37);
-            this.all_bt_writeexconfig.TabIndex = 5;
-            this.all_bt_writeexconfig.Text = "写菜单";
-            this.all_bt_writeexconfig.UseVisualStyleBackColor = true;
-            this.all_bt_writeexconfig.Click += new System.EventHandler(this.all_bt_writeexconfig_Click);
-            // 
             // all_bt_pay
             // 
-            this.all_bt_pay.Location = new System.Drawing.Point(6, 267);
+            this.all_bt_pay.Location = new System.Drawing.Point(8, 179);
             this.all_bt_pay.Name = "all_bt_pay";
             this.all_bt_pay.Size = new System.Drawing.Size(130, 37);
             this.all_bt_pay.TabIndex = 6;
@@ -778,7 +751,7 @@
             // 
             // all_bt_reset
             // 
-            this.all_bt_reset.Location = new System.Drawing.Point(6, 181);
+            this.all_bt_reset.Location = new System.Drawing.Point(8, 94);
             this.all_bt_reset.Name = "all_bt_reset";
             this.all_bt_reset.Size = new System.Drawing.Size(130, 37);
             this.all_bt_reset.TabIndex = 7;
@@ -788,7 +761,7 @@
             // 
             // all_bt_getcount
             // 
-            this.all_bt_getcount.Location = new System.Drawing.Point(144, 181);
+            this.all_bt_getcount.Location = new System.Drawing.Point(146, 94);
             this.all_bt_getcount.Name = "all_bt_getcount";
             this.all_bt_getcount.Size = new System.Drawing.Size(130, 37);
             this.all_bt_getcount.TabIndex = 8;
@@ -798,7 +771,7 @@
             // 
             // all_bt_stop
             // 
-            this.all_bt_stop.Location = new System.Drawing.Point(6, 224);
+            this.all_bt_stop.Location = new System.Drawing.Point(8, 137);
             this.all_bt_stop.Name = "all_bt_stop";
             this.all_bt_stop.Size = new System.Drawing.Size(130, 37);
             this.all_bt_stop.TabIndex = 9;
@@ -808,7 +781,7 @@
             // 
             // all_bt_restart
             // 
-            this.all_bt_restart.Location = new System.Drawing.Point(144, 224);
+            this.all_bt_restart.Location = new System.Drawing.Point(146, 137);
             this.all_bt_restart.Name = "all_bt_restart";
             this.all_bt_restart.Size = new System.Drawing.Size(130, 37);
             this.all_bt_restart.TabIndex = 10;
@@ -818,75 +791,32 @@
             // 
             // grp_nomal
             // 
-            this.grp_nomal.Controls.Add(this.label6);
             this.grp_nomal.Controls.Add(this.all_bt_real);
-            this.grp_nomal.Controls.Add(this.txt_menuvalue);
             this.grp_nomal.Controls.Add(this.all_bt_restart);
-            this.grp_nomal.Controls.Add(this.label7);
             this.grp_nomal.Controls.Add(this.all_bt_stop);
-            this.grp_nomal.Controls.Add(this.txt_menuitem);
             this.grp_nomal.Controls.Add(this.all_bt_getcount);
             this.grp_nomal.Controls.Add(this.all_bt_reset);
             this.grp_nomal.Controls.Add(this.all_bt_pay);
-            this.grp_nomal.Controls.Add(this.all_bt_writeexconfig);
             this.grp_nomal.Controls.Add(this.all_bt_readexconfig);
-            this.grp_nomal.Controls.Add(this.all_bt_writeconfig);
-            this.grp_nomal.Controls.Add(this.all_bt_readconfig);
             this.grp_nomal.Controls.Add(this.all_num_coin);
             this.grp_nomal.Controls.Add(this.label9);
             this.grp_nomal.Enabled = false;
             this.grp_nomal.Location = new System.Drawing.Point(10, 386);
             this.grp_nomal.Name = "grp_nomal";
-            this.grp_nomal.Size = new System.Drawing.Size(282, 313);
+            this.grp_nomal.Size = new System.Drawing.Size(282, 225);
             this.grp_nomal.TabIndex = 7;
             this.grp_nomal.TabStop = false;
             this.grp_nomal.Text = "通用";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(145, 109);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 15);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "值";
-            // 
             // all_bt_real
             // 
-            this.all_bt_real.Location = new System.Drawing.Point(144, 267);
+            this.all_bt_real.Location = new System.Drawing.Point(146, 179);
             this.all_bt_real.Name = "all_bt_real";
             this.all_bt_real.Size = new System.Drawing.Size(130, 37);
             this.all_bt_real.TabIndex = 11;
             this.all_bt_real.Text = "投币实物";
             this.all_bt_real.UseVisualStyleBackColor = true;
             this.all_bt_real.Click += new System.EventHandler(this.all_bt_real_Click);
-            // 
-            // txt_menuvalue
-            // 
-            this.txt_menuvalue.Location = new System.Drawing.Point(170, 104);
-            this.txt_menuvalue.MaxLength = 3;
-            this.txt_menuvalue.Name = "txt_menuvalue";
-            this.txt_menuvalue.Size = new System.Drawing.Size(104, 25);
-            this.txt_menuvalue.TabIndex = 36;
-            this.txt_menuvalue.Text = "1";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 109);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 15);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "菜单项";
-            // 
-            // txt_menuitem
-            // 
-            this.txt_menuitem.Location = new System.Drawing.Point(68, 104);
-            this.txt_menuitem.MaxLength = 3;
-            this.txt_menuitem.Name = "txt_menuitem";
-            this.txt_menuitem.Size = new System.Drawing.Size(68, 25);
-            this.txt_menuitem.TabIndex = 34;
-            this.txt_menuitem.Text = "1";
             // 
             // grp_sell
             // 
@@ -898,7 +828,7 @@
             this.grp_sell.Enabled = false;
             this.grp_sell.Location = new System.Drawing.Point(298, 521);
             this.grp_sell.Name = "grp_sell";
-            this.grp_sell.Size = new System.Drawing.Size(294, 178);
+            this.grp_sell.Size = new System.Drawing.Size(294, 90);
             this.grp_sell.TabIndex = 10;
             this.grp_sell.TabStop = false;
             this.grp_sell.Text = "售货机";
@@ -949,21 +879,11 @@
             this.sell_bt_payok.UseVisualStyleBackColor = true;
             this.sell_bt_payok.Click += new System.EventHandler(this.sell_bt_payok_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(299, -1);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 22);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "清空";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 703);
+            this.ClientSize = new System.Drawing.Size(1032, 617);
             this.Controls.Add(this.grp_sell);
             this.Controls.Add(this.grp_tigket);
             this.Controls.Add(this.grp_gift);
@@ -1061,10 +981,7 @@
         private System.Windows.Forms.GroupBox grp_tigket;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown all_num_coin;
-        private System.Windows.Forms.Button all_bt_readconfig;
-        private System.Windows.Forms.Button all_bt_writeconfig;
         private System.Windows.Forms.Button all_bt_readexconfig;
-        private System.Windows.Forms.Button all_bt_writeexconfig;
         private System.Windows.Forms.Button all_bt_pay;
         private System.Windows.Forms.Button all_bt_reset;
         private System.Windows.Forms.Button all_bt_getcount;
@@ -1081,10 +998,6 @@
         private System.Windows.Forms.TextBox ven_box;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox ven_price;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt_menuvalue;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txt_menuitem;
         private System.Windows.Forms.Button button3;
     }
 }

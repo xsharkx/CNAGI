@@ -221,16 +221,122 @@ namespace CNGPI_Vending
                         ErrCode = 0,
                         TransID = (msg as CNGPI.ITransMsg).TransID
                     };
-                case 0x010E:
-                    return new CNGPI.Msg_MenuGet_Back()
+                case 0x0111:
+                    return new CNGPI.Msg_GetMenuIndex_Back()
                     {
                         ADR = 1,
                         ErrCode = 0,
-                        ItemID = (msg as Msg_MenuGet_Event).ItemID,
-                        ItemValue = 10,
-                        Display = 1
+                        MenuItems = new int[] { 10, 11, 12, 14, 15, 17, 18, 19 },
                     };
+                case 0x0110:
+                    var it = msg as CNGPI.Msg_GetMenuDetail_Event;
+                    switch (it.ItemID)
+                    {
+                        case 10:
+                            return new CNGPI.Msg_GetMenuDetail_Back()
+                            {
+                                ADR = msg.ADR,
+                                ErrCode = 0,
+                                ItemDiscribe = "越低越容易中奖",
+                                ItemID = it.ItemID,
+                                ItemName = "中奖难度",
+                                Value = GetMenuV(it.ItemID, 10),
+                                MaxValue = 20,
+                                MinValue = 1,
+                            };
+                        case 11:
+                            return new CNGPI.Msg_GetMenuDetail_Back()
+                            {
+                                ADR = msg.ADR,
+                                ErrCode = 0,
+                                ItemDiscribe = "不中奖时按钮按下时的爪力",
+                                ItemID = it.ItemID,
+                                ItemName = "弱爪第一爪力",
+                                Value = GetMenuV(it.ItemID, 5),
+                                MaxValue = 10,
+                                MinValue = 1,
+                            };
+                        case 12:
+                            return new CNGPI.Msg_GetMenuDetail_Back()
+                            {
+                                ADR = msg.ADR,
+                                ErrCode = 0,
+                                ItemID = it.ItemID,
+                                ItemName = "弱爪第二爪力",
+                                Value = GetMenuV(it.ItemID, 5),
+                                MaxValue = 10,
+                                MinValue = 1,
+                            };
+                        case 14:
+                            return new CNGPI.Msg_GetMenuDetail_Back()
+                            {
+                                ADR = msg.ADR,
+                                ErrCode = 0,
+                                ItemDiscribe = "不中奖时拉回奖品爪力",
+                                ItemID = it.ItemID,
+                                ItemName = "弱爪第三爪力",
+                                Value = GetMenuV(it.ItemID, 5),
+                                MaxValue = 10,
+                                MinValue = 1,
+                            };
+                        case 15:
+                            return new CNGPI.Msg_GetMenuDetail_Back()
+                            {
+                                ADR = msg.ADR,
+                                ErrCode = 0,
+                                ItemDiscribe = "1=欢快,2=萌萌,3=酷",
+                                ItemID = it.ItemID,
+                                ItemName = "游戏音乐",
+                                Value = GetMenuV(it.ItemID, 2),
+                                MaxValue = 3,
+                                MinValue = 1,
+                            };
+                        case 17:
+                            return new CNGPI.Msg_GetMenuDetail_Back()
+                            {
+                                ADR = msg.ADR,
+                                ErrCode = 0,
+                                ItemDiscribe = "1=开,0=关",
+                                ItemID = it.ItemID,
+                                ItemName = "中奖爆闪灯",
+                                Value = GetMenuV(it.ItemID, 1),
+                                MaxValue = 1,
+                                MinValue = 0,
+                            };
+                        case 18:
+                            return new CNGPI.Msg_GetMenuDetail_Back()
+                            {
+                                ADR = msg.ADR,
+                                ErrCode = 0,
+                                ItemDiscribe = "一轮游戏次数",
+                                ItemID = it.ItemID,
+                                ItemName = "每轮次数",
+                                Value = GetMenuV(it.ItemID, 40),
+                                MaxValue = 100,
+                                MinValue = 0,
+                            };
+                        case 19:
+                            return new CNGPI.Msg_GetMenuDetail_Back()
+                            {
+                                ADR = msg.ADR,
+                                ErrCode = 0,
+                                ItemDiscribe = "一轮中奖次数,与一轮次数结合使用",
+                                ItemID = it.ItemID,
+                                ItemName = "每轮中奖数",
+                                Value = GetMenuV(it.ItemID, 2),
+                                MaxValue = 100,
+                                MinValue = 0,
+                            };
+                        default:
+                            return new CNGPI.Msg_GetMenuDetail_Back()
+                            {
+                                ADR = msg.ADR,
+                                ErrCode = 1,
+                            };
+                    }
                 case 0x010F:
+                    var menuset = msg as CNGPI.Msg_MenuSet_Event;
+                    SetMenuV(menuset.ItemID, menuset.ItemValue);
                     return new CNGPI.Msg_MenuSet_Back()
                     {
                         ADR = 1,
@@ -240,6 +346,30 @@ namespace CNGPI_Vending
                     return null;
             }
         }
+
+        Dictionary<int, uint> MenuValue = new Dictionary<int, uint>();
+
+        private uint GetMenuV(int itemid, uint defv)
+        {
+            if (MenuValue.ContainsKey(itemid))
+            {
+                return MenuValue[itemid];
+            }
+            return defv;
+        }
+
+        private void SetMenuV(int itemid, uint value)
+        {
+            if (MenuValue.ContainsKey(itemid))
+            {
+                MenuValue[itemid] = value;
+            }
+            else
+            {
+                MenuValue.Add(itemid, value);
+            }
+        }
+
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

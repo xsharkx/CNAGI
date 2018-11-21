@@ -237,57 +237,6 @@ namespace CNGPI_PayBox
                 DebugInfo(ex.Message);
             }
         }
-
-        private void all_bt_readexconfig_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var back = PayBox.SendAndBackMsg<CNGPI.Msg_MenuGet_Back>(new CNGPI.Msg_MenuGet_Event()
-                {
-                    ADR = PayBox.RemoteDev.CurrPortIndex,
-                    ItemID=Int32.Parse(txt_menuitem.Text),
-                }, 2000);
-                if (back.ErrCode == 0)
-                {
-                    DebugInfo("成功");
-                    txt_menuvalue.Text = back.ItemValue.ToString();
-                }
-                else
-                {
-                    DebugInfo($"错误{GetErrorCode(back.ErrCode)}");
-                }
-            }
-            catch (Exception ex)
-            {
-                DebugInfo(ex.Message);
-            }
-        }
-
-        private void all_bt_writeexconfig_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var back = PayBox.SendAndBackMsg<CNGPI.Msg_MenuSet_Back>(new CNGPI.Msg_MenuSet_Event()
-                {
-                    ADR = PayBox.RemoteDev.CurrPortIndex,
-                    ItemID = Int32.Parse(txt_menuitem.Text),
-                    ItemValue= (uint)Int32.Parse(txt_menuvalue.Text),
-                }, 2000);
-                if (back.ErrCode == 0)
-                {
-                    DebugInfo("成功");
-                }
-                else
-                {
-                    DebugInfo($"错误{GetErrorCode(back.ErrCode)}");
-                }
-            }
-            catch (Exception ex)
-            {
-                DebugInfo(ex.Message);
-            }
-        }
-
         private void all_bt_reset_Click(object sender, EventArgs e)
         {
             try
@@ -587,6 +536,13 @@ namespace CNGPI_PayBox
         private void button3_Click(object sender, EventArgs e)
         {
             event_txt.Clear();
+        }
+
+        private void all_bt_readexconfig_Click(object sender, EventArgs e)
+        {
+            FrmConfig cfg = new FrmConfig();
+            cfg.PayBox = PayBox;
+            cfg.Show();
         }
     }
 }

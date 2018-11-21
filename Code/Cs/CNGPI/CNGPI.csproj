@@ -44,6 +44,8 @@
     <Compile Include="Message.cs" />
     <Compile Include="MsgDataStream.cs" />
     <Compile Include="Msg_ConfigEx.cs" />
+    <Compile Include="Msg_GetMenuIndex.cs" />
+    <Compile Include="Msg_GetMenuDetail.cs" />
     <Compile Include="Msg_GetQrCode.cs" />
     <Compile Include="Msg_CancelOrder.cs" />
     <Compile Include="Msg_Menu.cs" />
