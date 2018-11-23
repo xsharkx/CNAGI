@@ -547,7 +547,7 @@ namespace CNGPI_Vending
         {
             try
             {
-                var back = GameMac.SendAndBackMsg<Msg_GetQrCode_Back>(new Msg_GetQrCode_Event()
+                var back = GameMac.SendAndBackMsg<Msg_GetQrCodeAndProImg_Back>(new Msg_GetQrCodeAndProImg_Event()
                 {
                     ADR = 1,
                 }, 15000);

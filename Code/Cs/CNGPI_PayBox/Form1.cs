@@ -109,11 +109,12 @@ namespace CNGPI_PayBox
                         ErrCode = 0,
                     };
                 case 0x0409:
-                    return new Msg_GetQrCode_Back()
+                    return new Msg_GetQrCodeAndProImg_Back()
                     {
                         ADR = PayBox.RemoteDev.CurrPortIndex,
                         ErrCode = 0,
-                        QrCode = "https://github.com/xsharkx/CNGPI/raw/master/logo/CNGPIV1.png"
+                        QrCode = "https://raw.githubusercontent.com/xsharkx/CNGPI/master/logo/CNGPIV1.png",
+                        ProductImage = "https://raw.githubusercontent.com/xsharkx/CNGPI/master/logo/CNGPIV1.png",
                     };
             }
             return null;

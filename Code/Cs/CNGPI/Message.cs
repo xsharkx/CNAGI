@@ -116,8 +116,8 @@ namespace CNGPI
             RegMsg(typeof(Msg_PayOrder_Back));
             RegMsg(typeof(Msg_CancelOrder_Event));
             RegMsg(typeof(Msg_CancelOrder_Back));
-            RegMsg(typeof(Msg_GetQrCode_Event));
-            RegMsg(typeof(Msg_GetQrCode_Back));
+            RegMsg(typeof(Msg_GetQrCodeAndProImg_Event));
+            RegMsg(typeof(Msg_GetQrCodeAndProImg_Back));
 
             RegMsg(typeof(Msg_GetMenuIndex_Back));
             RegMsg(typeof(Msg_GetMenuIndex_Event));
