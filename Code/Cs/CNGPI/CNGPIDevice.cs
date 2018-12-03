@@ -344,7 +344,7 @@ namespace CNGPI
                 }
                 System.Threading.Thread.Sleep(1);
                 waittimes++;
-                if (waittimes > 5)//6毫秒都没收到数据代表没有了
+                if (waittimes > 20)//6毫秒都没收到数据代表没有了
                 {
                     break;
                 }

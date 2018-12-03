@@ -87,7 +87,7 @@ namespace CNGPI_GameMachine
         }
 
         int CoinCount = 0;
-        int State = 1;
+        byte State = 1;
         int CoinPertime = 2;
         byte[] exdate = Guid.NewGuid().ToByteArray();
 

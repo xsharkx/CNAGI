@@ -7,11 +7,11 @@ CNGPI(China Gaming devices Public Interface)
 
 PC版调试工具(V1.18) 
 
-[支付盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.18.zip)
+[支付盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.19.zip)
 
-[娃娃机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameMachineV1.18.zip)
+[娃娃机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameMachineV1.19.zip)
 
-[口红机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.18.zip)
+[口红机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.19.zip)
 
 ## 一 摘要
 本文档定义出游戏机与周边设备互动的通讯协议，包括如下用途：

@@ -38,7 +38,7 @@ namespace CNGPI
     {
         public override int PID => 0x0182;
 
-        public int State { get; set; }
+        public byte State { get; set; }
 
         public int RemainCoin { get; set; }
 
@@ -49,7 +49,7 @@ namespace CNGPI
         protected override void ReadData(MsgDataStream stream)
         {
             base.ReadData(stream);
-            State = stream.ReadInt16();
+            State = stream.ReadByte();
             RemainCoin = stream.ReadInt16();
             RemainSec = stream.ReadInt16();
             ErrCode = stream.ReadInt16();
@@ -58,7 +58,7 @@ namespace CNGPI
         protected override void WriteData(MsgDataStream stream)
         {
             base.WriteData(stream);
-            stream.WriteInt16(State);
+            stream.WriteByte(State);
             stream.WriteInt16(RemainCoin);
             stream.WriteInt16(RemainSec);
             stream.WriteInt16(ErrCode);
