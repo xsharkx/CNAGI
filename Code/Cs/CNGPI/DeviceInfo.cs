@@ -47,7 +47,7 @@ namespace CNGPI
         /// <summary>
         /// 接口版本
         /// </summary>
-        public int CNGPIVer { get; set; }
+        public uint CNGPIVer { get; set; }
 
         /// <summary>
         /// 厂商名

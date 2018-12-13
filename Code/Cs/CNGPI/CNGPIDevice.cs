@@ -215,7 +215,10 @@ namespace CNGPI
                 RemoteDev.ID = Utility.ByteToHex(back.DeviceID);
                 RemoteDev.CurrPortIndex = back.CurrGamePortIndex;
                 RemoteDev.UseVer = back.GPIVersion;
+                RemoteDev.CNGPIVer = back.GPIVersion;
+                RemoteDev.SoftVer = back.SoftVer;
                 RemoteDev.DeviceType= back.DeviceType;
+                RemoteDev.ProductNum = back.ProductNum;
                 connected = true;
                 LastReciveTransID = 0;
                 LastSendTransID = 0;

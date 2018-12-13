@@ -42,7 +42,7 @@ namespace CNGPI
         }
         public override string ToString()
         {
-            return $"回应通用设置:错误码:{ErrCode}";
+            return $"回应通用设置:状态码:{ErrCode}";
         }
     }
 }

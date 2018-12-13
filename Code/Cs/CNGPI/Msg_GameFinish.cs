@@ -60,7 +60,7 @@ namespace CNGPI
 
         public override string ToString()
         {
-            return $"回应游戏结束:错误码:{ErrCode}";
+            return $"回应游戏结束:状态码:{ErrCode}";
         }
     }
 }

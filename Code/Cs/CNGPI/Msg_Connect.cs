@@ -92,7 +92,7 @@ namespace CNGPI
 
         public override string ToString()
         {
-            return $"回应握手:设备编号:{ProductNum.ToString("X2").PadLeft(8, '0')},设备ID:{Utility.ByteToHex(DeviceID)},设备类型:{DeviceType},P位数:{GamePortCount},当前P位:{CurrGamePortIndex},游戏版本:{SoftVer}";
+            return $"回应握手:设备编号:{ProductNum.ToString("X2").PadLeft(8, '0')},设备ID:{Utility.ByteToHex(DeviceID)},设备类型:{DeviceType},P位数:{GamePortCount},当前P位:{CurrGamePortIndex},游戏版本:{SoftVer},CNGPI:{GPIVersion}";
         }
     }
 }

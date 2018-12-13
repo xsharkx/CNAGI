@@ -53,7 +53,7 @@ namespace CNGPI
     //    }
     //    public override string ToString()
     //    {
-    //        return $"回应读取菜单项:项:{ItemID},值:{ItemValue},显示:{Display},错误码:{ErrCode}";
+    //        return $"回应读取菜单项:项:{ItemID},值:{ItemValue},显示:{Display},状态码:{ErrCode}";
     //    }
 
     //}
@@ -99,7 +99,7 @@ namespace CNGPI
         }
         public override string ToString()
         {
-            return $"回应设置菜单项:错误码:{ErrCode}";
+            return $"回应设置菜单项:状态码:{ErrCode}";
         }
     }
 }

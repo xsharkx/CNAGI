@@ -39,7 +39,7 @@ namespace CNGPI
 
         public override string ToString()
         {
-            return $"响应正扫二维码:错误码:{ErrCode},二维码:{QrCode},商品图片:{ProductImage}";
+            return $"响应正扫二维码:状态码:{ErrCode},二维码:{QrCode},商品图片:{ProductImage}";
         }
     }
 }

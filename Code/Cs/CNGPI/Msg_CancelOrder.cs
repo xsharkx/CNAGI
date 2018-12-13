@@ -52,7 +52,7 @@ namespace CNGPI
         }
         public override string ToString()
         {
-            return $"响应取消订单:错误码:{ErrCode}";
+            return $"响应取消订单:状态码:{ErrCode}";
         }
     }
 }

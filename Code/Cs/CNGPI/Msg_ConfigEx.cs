@@ -51,7 +51,7 @@ namespace CNGPI
 
         public override string ToString()
         {
-            return $"回应扩展设置:错误码:{ErrCode}";
+            return $"回应扩展设置:状态码:{ErrCode}";
         }
     }
 }

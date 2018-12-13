@@ -62,7 +62,7 @@ namespace CNGPI
 
         public override string ToString()
         {
-            return $"回应创建订单:二维码:{QrCode},错误码:{ErrCode}";
+            return $"回应创建订单:二维码:{QrCode},状态码:{ErrCode}";
         }
     }
 

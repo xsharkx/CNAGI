@@ -62,7 +62,7 @@ namespace CNGPI
         }
         public override string ToString()
         {
-            return $"回应支付订单:错误码{ErrCode}";
+            return $"回应支付订单:状态码:0X{ErrCode:X2}";
         }
     }
 

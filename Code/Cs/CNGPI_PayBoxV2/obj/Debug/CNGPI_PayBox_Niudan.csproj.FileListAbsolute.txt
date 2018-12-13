@@ -1,0 +1,14 @@
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox.FrmConfig.resources
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox.MenuItem.resources
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox_Niudan.NiuDan.resources
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox_Niudan.Properties.Resources.resources
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox_Niudan.csproj.GenerateResource.cache
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox_Niudan.csproj.CoreCompileInputs.cache
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\bin\Debug\CNGPI_PayBox_Niudan.exe
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\bin\Debug\CNGPI_PayBox_Niudan.pdb
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\bin\Debug\CNGPI.dll
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\bin\Debug\CNGPI.pdb
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox_Niudan.csprojAssemblyReference.cache
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox_Niudan.csproj.CopyComplete
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox_Niudan.exe
+E:\Program\OpenSource\CNGPI\Code\Cs\CNGPI_PayBoxV2\obj\Debug\CNGPI_PayBox_Niudan.pdb
