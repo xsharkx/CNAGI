@@ -25,7 +25,8 @@ PC版调试工具(V1.19)
 
 [口红机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.19.zip)
 
-[模拟与扭蛋机交互流程的支付盒子模拟器] (https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBox_NiudanV1.20.zip)
+[模拟与扭蛋机交互流程的支付盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBox_NiudanV1.20.zip)
+
 
 
 5.拿实体盒子联调
