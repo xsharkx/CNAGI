@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace CNGPI
 {
-    public class Msg_GetMenuDetail_Event:Message
+    public class Msg_GetMenuDetail_Event : Message
     {
         public override int PID => 0x0110;
 
@@ -49,14 +47,19 @@ namespace CNGPI
             ItemID = stream.ReadInt16();
             Value = stream.ReadInt32();
             MaxValue = stream.ReadInt32();
-            MinValue= stream.ReadInt32();
+            MinValue = stream.ReadInt32();
+
+            var gb2312 = Encoding.GetEncoding("GB2312");
             byte[] bts = stream.ReadByteArray(32);
-            ItemName = System.Text.Encoding.Unicode.GetString(bts).Replace("\0","");
+            //ItemName = System.Text.Encoding.Unicode.GetString(bts).Replace("\0","");
+            ItemName = gb2312.GetString(bts);
+
             int discribelen = stream.ReadByte();
             if (discribelen > 0)
             {
                 byte[] bts2 = stream.ReadByteArray(discribelen);
-                ItemDiscribe= System.Text.Encoding.Unicode.GetString(bts2).Replace("\0", "");
+                //ItemDiscribe= System.Text.Encoding.Unicode.GetString(bts2).Replace("\0", "");
+                ItemDiscribe = gb2312.GetString(bts2);
             }
         }
 
@@ -68,7 +71,8 @@ namespace CNGPI
             stream.WriteInt32(Value);
             stream.WriteInt32(MaxValue);
             stream.WriteInt32(MinValue);
-            byte[] bts = Utility.StrToByteUniCode(ItemName, 32);
+            byte[] bts = Utility.UnicodeToGB2312ToByte(ItemName, 32);
+
             stream.WriteByteArray(bts);
             if (ItemDiscribe == null)
             {
@@ -77,8 +81,11 @@ namespace CNGPI
             else
             {
                 byte[] bts2 = System.Text.Encoding.Unicode.GetBytes(ItemDiscribe);
-                stream.WriteByte((byte)bts2.Length);
-                stream.WriteByteArray(bts2);
+
+                var gb2312 = Encoding.GetEncoding("GB2312");
+                byte[] bts3 = Encoding.Convert(Encoding.Unicode, gb2312, bts2);
+                stream.WriteByte((byte)bts3.Length);
+                stream.WriteByteArray(bts3);
             }
         }
 

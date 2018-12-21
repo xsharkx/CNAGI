@@ -46,6 +46,21 @@ namespace CNGPI
             return datawtname;
         }
 
+        public static byte[] UnicodeToGB2312ToByte(string data, int length)
+        {
+            byte[] source = System.Text.Encoding.Unicode.GetBytes(data);
+            var gb2312 = Encoding.GetEncoding("GB2312");
+            byte[] dataname = Encoding.Convert(Encoding.Unicode, gb2312, source);
+            if (dataname.Length > length) throw new Exception("内容太长");
+
+            
+
+            byte[] datawtname = new byte[length];
+            Array.Copy(dataname, datawtname, dataname.Length);
+            return datawtname;
+        }
+
+
         public static byte[] StrToByteUniCode(string data, int length)
         {
             byte[] dataname = System.Text.Encoding.Unicode.GetBytes(data);
