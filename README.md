@@ -17,13 +17,13 @@ CNGPI(China Gaming devices Public Interface)
 4.下载模拟器进行调试
 
 
-PC版调试工具(V1.19)
+PC版调试工具(V1.20)
 
-[支付盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.19.zip)
+[支付盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBoxV1.20.zip)
 
-[娃娃机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameMachineV1.19.zip)
+[娃娃机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_GameMachineV1.20.zip)
 
-[口红机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.19.zip)
+[口红机模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_VendingV1.20.zip)
 
 [模拟与扭蛋机交互流程的支付盒子模拟器](https://github.com/xsharkx/CNGPI/raw/master/Tools/CNGPI_PayBox_NiudanV1.20.zip)
 
