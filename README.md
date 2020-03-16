@@ -1,5 +1,5 @@
 # 游戏机通用扩展协议
-![接口在游戏机主板上的状况以及针脚定义](logo/CNGPIV1.png)
+![CNGPI的LOGO加载失败](logo/CNGPIV1.png)
 
 CNGPI(China Gaming devices Public Interface)
 
